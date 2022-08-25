@@ -1,2 +1,1 @@
-# Pseudo
-Pseudo-localization
+A Pseudo-localization Translater Demo
