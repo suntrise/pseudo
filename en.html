@@ -3,23 +3,23 @@
 <title>Pseudo-localization Translater Demo</title>
 <body>
 <h1>Pseudo-localization Translater Demo By <a href="https://suntrise.github.io/">STR</a></h1>
-<button onclick="notice.style.display='block'"><h3>What is Pseudo-localization？</h3></button>
+<button onclick="notice.style.display='block'"><h2>What is Pseudo-localization?</h2></button>
 <br>
 <br>
 <textarea style="" id="pstype">
 </textarea>
 <br><br>
+Pseudo-localized results: 
 <div id="psshow"> </div>
 <br>
-
 <input type="radio" name="brackett" id="front">[8dRxc][Add prefix + Enclose in brackets and exclamations !!!]
-<input type="radio" name="brackett" id="bracket">[Only enclose in brackets and exclamations !!!]
-<input type="radio" name="brackett" checked>none
+<input type="radio" name="brackett" id="bracket">[Enclose in brackets and exclamations !!!]
+<input type="radio" name="brackett">none
 <br><br>
-<button style="height: 50px;width: auto;" onclick="psloca()">Translate into pseudo language</button>
+<button style="height: auto;width: 300px;" onclick="psloca()"><h1>Pseudo-localized! </h1></button>
 <br><br>
-<a href="https://github.com/suntrise/pseudo">GitHub Home Page</a>&nbsp &nbsp
-<a href="https://suntrise.github.io/pseudo">Chinese Page</a>
+<a href="https://github.com/suntrise/suntrise.github.io/">GitHub Home Page</a>
+<a href="https://suntrise.github.io/pslo.html">Chinese Page</a>
 <div class="notice" id="notice">
 Pseudolocalization (or qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB) is a way to simulate the localization process. And by simulating the localization process, it is possible to effectively investigate the problems that occur in the localization (such as characters that cannot be displayed normally, or incomplete segment display due to too long strings, etc.).
 <br>
@@ -33,29 +33,9 @@ More information: <a href="https://docs.microsoft.com/zh-cn/globalization/method
 This webpage demonstrates part of pseudo-localization, replacing English letters with different characters.
 <br>
 More features will be updated later, thank you for your support!
-<center><button style="position: absolute;bottom: 5%;" onclick="notice.style.display='none'">Close</button></center>
+<br><br><br><br>
+<button style="position: absolute;bottom: 3%;right: 1%;height: 50px;width: 100px;font-size: 20px;" onclick="notice.style.display='none'">Close</button>
 </div>
 </body>
-<style type="text/css">
-  body{
-    font-family: Segoe UI Semibold;
-    font-size: 20px;
-    background: #eee;
-  }
-  textarea{
-    width: 50%;
-    height: 200px;
-    font-family: Segoe UI;
-    font-size: 20px;
-  }
-  .notice{
-    position: absolute;
-    top: 13%;
-    height: 70%;
-    width: 60%;
-    display: none;
-    border: 5px solid #07d;
-    background: #fff;
-  }
-</style>
+<link rel="stylesheet" type="text/css" href="pslo.css"> 
 <script type="text/javascript" src="pslo.js"></script>
