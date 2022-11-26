@@ -2,6 +2,7 @@ body{
     font-family: Segoe UI Semibold;
     font-size: 20px;
     background: #eee;
+    line-height: 35px;
   }
   textarea{
     height: 200px;
