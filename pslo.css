@@ -4,16 +4,18 @@ body{
     background: #eee;
   }
   textarea{
-    width: 50%;
     height: 200px;
     font-family: Segoe UI;
     font-size: 20px;
+  }
+  a{
+    text-decoration: none;
   }
   .notice{
     position: absolute;
     top: 13%;
     height: auto;
-    width: 70%;
+    width: 80%;
     display: none;
     border: 5px solid #07d;
     background: #fff;
