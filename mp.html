@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8" />
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="320" name="MobileOptimized">
+<title>伪本地化翻译器 Demo</title>
+<body>
+<a href="https://suntrise.github.io/">← 回到主页</a>
+<br>伪本地化（Pseudo-localization）翻译器 Demo By STR
+<br>
+<button onclick="notice.style.display='block'"><h3>什么是伪本地化？</h3></button>
+<br>
+<br>
+<textarea style="width: 100%;" id="pstype" placeholder="在这里输入要翻译的内容~"></textarea>
+<textarea style="width: 100%;" id="psshow" readonly="readonly"placeholder="结果会显示在这里~"></textarea>
+<br>
+  <button style="height: 70px;width: 150px;" onclick="psloca()"><h2>翻译成伪语言</h2></button>
+<br><br>
+选项：<br>
+<input type="radio" name="brackett" id="front">[8dRxc][添加前缀 + 用括号和感叹号括起来 !!!]
+<br>
+<input type="radio" name="brackett" id="bracket">[仅用括号和感叹号括起来 !!!]
+<br>
+<input type="radio" name="brackett" checked>不添加前后缀
+<br><br>
+<a href="https://github.com/suntrise/pseudo/">GitHub 主页</a>
+&nbsp <a href="https://suntrise.github.io/pseudo/en.html">英文版界面</a>
+<div class="notice" style="width: 90%;font-size: 15px;line-height: 20px;" id="notice">
+伪本地化（pseudo-localization，语言环境名称为 qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB），是模拟本地化过程的一种方式。而通过模拟本地化过程，能够有效地调查在本地化中出现的问题（如字符无法正常显示，或因字符串过长而导致语段显示不完整等）。在伪本地化过程中，英文字母会被替换为来自其他语言的重音符号和字符。（例如，字母 a 可以被 αäáàāāǎǎăăåå 中的任何一个替换。），还会添加分隔符等以增加字符串长度。”举例：“Windows 照片库（Windows Photo Gallery）”→“ [1iaT9][ Ẅĭпðøωś Þнôтŏ Ģάŀļєяÿ !!! !] ”
+<br>
+  <a href="https://www.bilibili.com/read/cv18226873">https://www.bilibili.com/read/cv18226873</a>
+<br><br>
+该网页演示了伪本地化的一部分，即用不同的字符替换英文字母和添加分隔符。
+<br>
+更多功能将在之后更新，感谢大家的支持！
+<br><br><br><br>
+<button style="position: absolute;bottom: 3%;right: 1%;height: 40px;width: 70px;font-size: 15px;" onclick="notice.style.display='none'">关闭</button>
+</div>
+</body>
+<link rel="stylesheet" type="text/css" href="pslo.css">    
+<script type="text/javascript" src="pslo.js"></script>
