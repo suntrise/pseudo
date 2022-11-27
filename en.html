@@ -2,25 +2,26 @@
 <meta charset="utf-8">
 <title>Pseudo-localization Translater Demo</title>
 <body>
-<h1>Pseudo-localization Translater Demo By STR</h1>
+<h1>Pseudo-localization Translater Demo By <a href="https://suntrise.github.io/">STR</a></h1>
 <button onclick="notice.style.display='block'"><h2>What is Pseudo-localization?</h2></button>
 <br>
 <br>
-<textarea style="" id="pstype">
-</textarea>
-<br><br>
-Pseudo-localized results: 
-<div id="psshow"> </div>
+<textarea style="width: 45%;" id="pstype" placeholder="Type here"></textarea>
+<textarea style="width: 45%;" id="psshow" readonly="readonly"placeholder="Translation results"></textarea>
+<br>
+Options: 
 <br>
 <input type="radio" name="brackett" id="front">[8dRxc][Add prefix + Enclose in brackets and exclamations !!!]
+<br>
 <input type="radio" name="brackett" id="bracket">[Enclose in brackets and exclamations !!!]
+<br>
 <input type="radio" name="brackett" checked>Do not add prefix or suffix
 <br><br>
 <button style="height: auto;width: 300px;" onclick="psloca()"><h1>Pseudo-localized! </h1></button>
 <br><br>
 <a href="https://github.com/suntrise/pseudo">GitHub Home Page</a>
 <a href="https://suntrise.github.io/pseudo">Chinese Page</a>
-&nbsp <img src="https://badges.toozhao.com/badges/01GGHCDJKDX06SY9T2BM6TJ8EJ/blue.svg" />
+&nbsp; <img src="https://badges.toozhao.com/badges/01GGHCDJKDX06SY9T2BM6TJ8EJ/blue.svg" />
 <div class="notice" id="notice">
 Pseudolocalization (or qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB) is a way to simulate the localization process. And by simulating the localization process, it is possible to effectively investigate the problems that occur in the localization (such as characters that cannot be displayed normally, or incomplete segment display due to too long strings, etc.).
 <br>
@@ -31,7 +32,7 @@ For Example：“Windows Photo Gallery” → “ [1iaT9][ Ẅĭпðøωś Þн�
 <br>
 More information: <a href="https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization">https://docs.microsoft.com/zh-cn/globalization/methodology/pseudolocalization</a>
 <br><br>
-This webpage demonstrates part of pseudo-localization, replacing English letters with different characters and adding separators.
+This webpage demonstrates part of pseudo-localization, replacing English letters with different characters.
 <br>
 More features will be updated later, thank you for your support!
 <br><br><br><br>
