@@ -20,13 +20,13 @@ var arrg=["ḡ","ģ","ǧ","ĝ","ğ","ġ","ǥ","ǵ","ɠ","ᶃ","ꞡ"]
 var arrgg=["Ḡ","Ǵ","Ǧ","Ĝ","Ğ","Ģ","Ġ","Ɠ","Ǥ","Ꞡ"]
 var arrh=["ĥ","ħ","ђ","н"]
 var arrhh=["H","Ĥ","Ħ"]
-var arri=["ı","ī","í","ǐ","ì","ĭ","î","ï","ί","į","ΐ"]
+var arri=["ı","ī","í","ǐ","ì","ĭ","î","ï","ί","į","ΐ","ι"]
 var arrii=["Ī","Í","Ǐ","Ì","Î","Ï","Ĭ","Ί"]
 var arrj=["j"]
 var arrjj=["J","Ĵ"]
 var arrk=["ƙ","κ"]
 var arrkk=["К"]
-var arrl=["ŀ","ļ","ℓ","ĺ","ļ","ľ","ł","ι"]
+var arrl=["ŀ","ļ","ℓ","ĺ","ļ","ľ","ł"]
 var arrll=["Ŀ","£","Ļ","Ł","Ĺ"]
 var arrm=["m","₥","м"]
 var arrmm=["M"]
@@ -115,7 +115,7 @@ function psloca() {
           al=arrhh[Math.floor(Math.random()*3)]
         }
         if(al=="i"){
-          al=arri[Math.floor(Math.random()*10)]
+          al=arri[Math.floor(Math.random()*11)]
         }
         if(al=="I"){
           al=arrii[Math.floor(Math.random()*8)]
@@ -133,7 +133,7 @@ function psloca() {
           al=arrkk[Math.floor(Math.random()*1)]
         }
         if(al=="l"){
-          al=arrl[Math.floor(Math.random()*8)]
+          al=arrl[Math.floor(Math.random()*7)]
         }
         if(al=="L"){
           al=arrll[Math.floor(Math.random()*4)]
