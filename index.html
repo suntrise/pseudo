@@ -5,24 +5,31 @@
 <a href="https://suntrise.github.io/">← 回到主页</a>
 <h2>伪本地化翻译器 Demo By STR</h2>
 <button onclick="notice.style.display='block'"><h3>什么是伪本地化？</h3></button>
+&nbsp<a href="https://github.com/suntrise/pseudo/">GitHub 主页</a>
+&nbsp <a href="https://suntrise.github.io/pseudo/en.html">英文版界面</a>
 <br>
 <br>
 <textarea style="width: 45%;" id="pstype" placeholder="在这里输入要翻译的内容~"></textarea>
 <textarea style="width: 45%;" id="psshow" readonly="readonly"placeholder="结果会显示在这里~"></textarea>
 <br>
   <button style="height: 70px;width: 150px;" onclick="psloca()"><h2>翻译成伪语言</h2></button>
-<br><br>
-选项：<br>
-<input type="radio" name="brackett" id="front">[8dRxc][添加前缀 + 用括号和感叹号括起来 !!!]
 <br>
-<input type="radio" name="brackett" id="bracket">[仅用括号和感叹号括起来 !!!]
-<br>
-<input type="radio" name="brackett" checked>不添加前后缀
+<h3>选项：</h3>
+前缀：<br>
+<input type="radio" name="frontt" id="nofront" checked>不添加前缀
+<input type="radio" name="frontt" id="front">[Abc12]添加前缀（伪 Hash ID）
 <br><br>
-<a href="https://github.com/suntrise/pseudo/">GitHub 主页</a>
-&nbsp <a href="https://suntrise.github.io/pseudo/en.html">英文版界面</a>
+后缀：<br>
+<input type="radio" name="brackett" checked>不添加后缀
+<br>
+<input type="radio" name="brackett" id="bracket">[括号+感叹号括起来（微软式伪本地化） !!!]
+<br>
+<input type="radio" name="brackett" id="bracketAn">[括号+在语段后添加英文基数词（安卓式伪本地化） one two three]
+<br><br>
+<div id="test"></div>
+<img src="https://badges.toozhao.com/badges/01GGFBWDY0MAKM9FJNVQGK5WDD/blue.svg" />
 <div class="notice" id="notice">
-伪本地化（pseudo-localization，语言环境名称为 qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB），是模拟本地化过程的一种方式。而通过模拟本地化过程，能够有效地调查在本地化中出现的问题（如字符无法正常显示，或因字符串过长而导致语段显示不完整等）。
+伪本地化（pseudo-localization，语言环境名称为 qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB），是通过模拟本地化过程，以有效地调查在本地化中出现的问题（如字符无法正常显示，或因字符串过长而导致语段显示不完整等）。
 <br>
 在伪本地化过程中，英文字母会被替换为来自其他语言的重音符号和字符。（例如，字母 a 可以被 αäáàāāǎǎăăåå 中的任何一个替换。），还会添加分隔符等以增加字符串长度。
 <br>
@@ -38,8 +45,6 @@
 <br><br><br><br>
 <button style="position: absolute;bottom: 3%;right: 1%;height: 50px;width: 100px;font-size: 20px;" onclick="notice.style.display='none'">关闭</button>
 </div>
-&nbsp;&nbsp;
-<img src="https://badges.toozhao.com/badges/01GGFBWDY0MAKM9FJNVQGK5WDD/blue.svg" />
 </body>
 <link rel="stylesheet" type="text/css" href="pslo.css">    
 <script type="text/javascript" src="pslo.js"></script>
