@@ -268,6 +268,5 @@ var arrba=["one","two","three","four","five","six","seven","eight","nine","ten",
           alll=alll;
         }
         psshow.innerHTML = alll;
-        test.innerHTML = arrv.length;
       }
 }
