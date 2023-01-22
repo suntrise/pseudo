@@ -4,23 +4,29 @@
 <body>
 <h1>Pseudo-localization Translater Demo By <a href="https://suntrise.github.io/">STR</a></h1>
 <button onclick="notice.style.display='block'"><h2>What is Pseudo-localization?</h2></button>
+&nbsp;<a href="https://github.com/suntrise/pseudo">GitHub Home Page</a>
+<a href="https://suntrise.github.io/pseudo">Chinese Page</a>
 <br>
 <br>
 <textarea style="width: 45%;" id="pstype" placeholder="Type here"></textarea>
 <textarea style="width: 45%;" id="psshow" readonly="readonly"placeholder="Translation results"></textarea>
 <br>
-Options: 
+<div id="options">
 <br>
-<input type="radio" name="brackett" id="front">[8dRxc][Add prefix + Enclose in brackets and exclamations !!!]
+<h3>Options:</h3> 
+Prefix: <br>
+<input type="radio" name="frontt" id="nofront" checked>Do not add prefix
+<input type="radio" name="frontt" id="front">Add prefix
 <br>
-<input type="radio" name="brackett" id="bracket">[Enclose in brackets and exclamations !!!]
-<br>
+Suffix:<br>
 <input type="radio" name="brackett" checked>Do not add prefix or suffix
+<br>
+<input type="radio" name="brackett" id="bracket">[Enclose in brackets and exclamations (MS-style pseudo-localization) !!!]
+<input type="radio" name="brackett" id="bracketAn">[Brackets + add English base numerals after the paragraph (Android-style pseudo-localization) one two three]
+<br>
 <br><br>
 <button style="height: auto;width: 300px;" onclick="psloca()"><h1>Pseudo-localized! </h1></button>
 <br><br>
-<a href="https://github.com/suntrise/pseudo">GitHub Home Page</a>
-<a href="https://suntrise.github.io/pseudo">Chinese Page</a>
 &nbsp; <img src="https://badges.toozhao.com/badges/01GGHCDJKDX06SY9T2BM6TJ8EJ/blue.svg" />
 <div class="notice" id="notice">
 Pseudolocalization (or qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB) is a way to simulate the localization process. And by simulating the localization process, it is possible to effectively investigate the problems that occur in the localization (such as characters that cannot be displayed normally, or incomplete segment display due to too long strings, etc.).
@@ -30,7 +36,7 @@ During pseudo-localization, English letters are replaced with accents and charac
 <br>
 For Example：“Windows Photo Gallery” → “ [1iaT9][ Ẅĭпðøωś Þнôтŏ Ģάŀļєяÿ !!! !] ”
 <br>
-More information: <a href="https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization">https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization</a>
+More information: <a href="https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization">https://docs.microsoft.com/zh-cn/globalization/methodology/pseudolocalization</a>
 <br><br>
 This webpage demonstrates part of pseudo-localization, replacing English letters with different characters.
 <br>
