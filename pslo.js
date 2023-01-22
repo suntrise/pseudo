@@ -239,11 +239,23 @@ function bracketfun() {
         n=0;
         gth="";
 }
+function bracketA() {
+var arrba=["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty"]
+   while(n<(i/7)){
+        n++
+        gth = gth+arrba[(n-1)%20]+" " 
+        } 
+        alll = "["+ all +" " +gth +"]";  
+        n=0;
+        gth="";
+}
         if (bracket.checked) {
           bracketfun()
         }
+        if (bracketAn.checked) {
+          bracketA()
+        }
         if (front.checked) {
-        bracketfun()
         while(m<5){
           m++
           hashid = hashid + arral[Math.floor(Math.random()*62)]
@@ -256,5 +268,6 @@ function bracketfun() {
           alll=alll;
         }
         psshow.innerHTML = alll;
+        test.innerHTML = arrv.length;
       }
 }
