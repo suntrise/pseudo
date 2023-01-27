@@ -59,11 +59,20 @@ var arrzz=["Z","Ź","Ż","Ž","Ƶ","Ȥ","Ẓ","Ẕ","Ẑ","Ⱬ"]
 // var arr2=["↊"] 字体缺少
 // var arr3=["↋"] 字体缺少
 var arral=["A","a","B","b","C","c","D","d","E","e","F","f","G","g","H","h","I","i","J","j","K","k","L","l","M","m","N","n","O","o","P","p","Q","q","R","r","S","s","T","t","U","u","V","v","W","w","X","x","Y","y","Z","z","1","2","3","4","5","6","7","8","9","0"]
-
+var xab=setInterval(xabcheck,1)
+function xabcheck() {
+if(enXA.checked) {
+    xaoptions.style.display="block";
+  }
+else if(enXB.checked){
+  xaoptions.style.display="none";
+}
+}
 function psloca() {
   all="";
   i=0;
   str = pstype.value;
+if (enXA.checked) {
     for (let i in str) {
         var al = str[i];
         if(al=="a"){
@@ -267,6 +276,11 @@ var arrba=["one","two","three","four","five","six","seven","eight","nine","ten",
         else{
           alll=alll;
         }
-        psshow.innerHTML = alll;
       }
+    }
+else if(enXB.checked){
+  alll=str.split('').reverse().join("");
+}
+        psshow.innerHTML = alll;
+
 }
