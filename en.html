@@ -11,8 +11,14 @@
 <textarea style="width: 45%;" id="pstype" placeholder="Type here"></textarea>
 <textarea style="width: 45%;" id="psshow" readonly="readonly"placeholder="Translation results"></textarea>
 <br>
+<button style="height: auto;width: 300px;" onclick="psloca()"><h1>Pseudo-localized! </h1></button>
 <div id="options">
 <h3>Options:</h3> 
+<div id="options">
+<input type="radio" name="enxab" id="enXA" checked>en-XA（abc→ǻƀĉ）
+<input type="radio" name="enxab" id="enXB">en-XB（abc→cba）
+<br>
+<div id="xaoptions">
 Prefix: <br>
 <input type="radio" name="frontt" id="nofront" checked>Do not add prefix
 <input type="radio" name="frontt" id="front">Add prefix
@@ -23,9 +29,7 @@ Suffix:<br>
 <input type="radio" name="brackett" id="bracket">[Enclose in brackets and exclamations (MS-style pseudo-localization) !!!]
 <br>
 <input type="radio" name="brackett" id="bracketAn">[Brackets + add English base numerals after the paragraph (Android-style pseudo-localization) one two three]
-<br>
-<br>
-<button style="height: auto;width: 300px;" onclick="psloca()"><h1>Pseudo-localized! </h1></button>
+</div>
 <br><br>
 &nbsp; <img src="https://badges.toozhao.com/badges/01GGHCDJKDX06SY9T2BM6TJ8EJ/blue.svg" />
 <div class="notice" id="notice">
