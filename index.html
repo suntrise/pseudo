@@ -15,7 +15,12 @@
   <button style="height: 70px;width: 150px;" onclick="psloca()"><h2>翻译成伪语言</h2></button>
 <br>
 <h3>选项：</h3>
-前缀：<br>
+<div id="options">
+<input type="radio" name="enxab" id="enXA" checked>en-XA（abc→ǻƀĉ）
+<input type="radio" name="enxab" id="enXB">en-XB（abc→cba）
+<br>
+<div id="xaoptions">
+前缀：
 <input type="radio" name="frontt" id="nofront" checked>不添加前缀
 <input type="radio" name="frontt" id="front">[Abc12]添加前缀（伪 Hash ID）
 <br><br>
@@ -25,8 +30,9 @@
 <input type="radio" name="brackett" id="bracket">[括号+感叹号括起来（微软式伪本地化） !!!]
 <br>
 <input type="radio" name="brackett" id="bracketAn">[括号+在语段后添加英文基数词（安卓式伪本地化） one two three]
+</div>
+</div>
 <br><br>
-<div id="test"></div>
 <img src="https://badges.toozhao.com/badges/01GGFBWDY0MAKM9FJNVQGK5WDD/blue.svg" />
 <div class="notice" id="notice">
 伪本地化（pseudo-localization，语言环境名称为 qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB），是通过模拟本地化过程，以有效地调查在本地化中出现的问题（如字符无法正常显示，或因字符串过长而导致语段显示不完整等）。
