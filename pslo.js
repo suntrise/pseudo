@@ -231,9 +231,6 @@ if (enXA.checked) {
         if(al=="Z"){
           al=arrzz[Math.floor(Math.random()*10)]
         }
-        if(al=="\n"){
-          al="<br>"
-        }
         all += al; 
         alll = all;
 function bracketfun() {
