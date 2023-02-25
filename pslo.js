@@ -1,6 +1,7 @@
+var ver = "2.2h"
+var str = ""
 var all = "";
 var alll = "";
-var str = ""
 var gth="";
 var hashid=""
 var m=n=0;
@@ -77,9 +78,15 @@ if (enXA.checked) {
         var al = str[i];
         if(al=="a"){
           al=arra[Math.floor(Math.random()*53)]
+          if (dbvowel.checked) {
+            al=al+al
+          }
         }
         if(al=="A"){
           al=arraa[Math.floor(Math.random()*15)]
+          if (dbvowel.checked) {
+            al=al+al
+          }                   
         }
         if(al=="b"){
           al=arrb[Math.floor(Math.random()*16)]
@@ -101,9 +108,15 @@ if (enXA.checked) {
         }
         if(al=="e"){
           al=arre[Math.floor(Math.random()*15)]
+        if (dbvowel.checked) {
+            al=al+al
+          }
         }
         if(al=="E"){
           al=arree[Math.floor(Math.random()*11)]
+        if (dbvowel.checked) {
+            al=al+al
+          }
         }
         if(al=="f"){
           al=arrf[Math.floor(Math.random()*2)]
@@ -125,9 +138,15 @@ if (enXA.checked) {
         }
         if(al=="i"){
           al=arri[Math.floor(Math.random()*11)]
+          if (dbvowel.checked) {
+            al=al+al
+          }
         }
         if(al=="I"){
           al=arrii[Math.floor(Math.random()*8)]
+          if (dbvowel.checked) {
+            al=al+al
+          }
         }
         if(al=="j"){
           al=arrj[Math.floor(Math.random()*1)]
@@ -161,9 +180,15 @@ if (enXA.checked) {
         }
         if(al=="o"){
           al=arro[Math.floor(Math.random()*11)]
+          if (dbvowel.checked) {
+            al=al+al
+          }
         }
         if(al=="O"){
           al=arroo[Math.floor(Math.random()*10)]
+          if (dbvowel.checked) {
+            al=al+al
+          }
         }
         if(al=="p"){
           al=arrp[Math.floor(Math.random()*4)]
@@ -197,9 +222,15 @@ if (enXA.checked) {
         }
         if(al=="u"){
           al=arru[Math.floor(Math.random()*19)]
+          if (dbvowel.checked) {
+            al=al+al
+          }
         }
         if(al=="U"){
           al=arruu[Math.floor(Math.random()*7)]
+          if (dbvowel.checked) {
+            al=al+al
+          }
         }
         if(al=="v"){
           al=arrv[Math.floor(Math.random()*1)]
@@ -231,9 +262,12 @@ if (enXA.checked) {
         if(al=="Z"){
           al=arrzz[Math.floor(Math.random()*10)]
         }
+        if(al=="\n" && ctrlchr.checked){
+          al="\n"
+          }          
         all += al; 
         alll = all;
-function bracketfun() {
+function bracketMS() {
    while(n<(i/7)){
         n++
         gth=gth+"!"  
@@ -255,10 +289,10 @@ var arrba=["one","two","three","four","five","six","seven","eight","nine","ten",
         n=0;
         gth="";
 }
-        if (bracket.checked) {
-          bracketfun()
+        if (bracket.value=="1") {
+          bracketMS()
         }
-        if (bracketAn.checked) {
+        if (bracket.value=="2") {
           bracketA()
         }
         if (front.checked) {
