@@ -1,10 +1,13 @@
-var ver = "2.2h"
+var ver = "v5.5h"
 var str = ""
 var all = "";
-var alll = "";
-var gth="";
+var result = "";
+var suf="";
 var hashid=""
-var m=n=0;
+var vow="";
+var resph="结果会显示在这里~"
+var pshist=""
+var m=n=j=0;
 var arra=["ä","ā","á","ǎ","à","ă","å","ǻ","ã","ǟ","ǡ","ǻ","ȁ","ȃ","ȧ","ᶏ","ḁ","ẚ","ạ","ả","ấ","ầ","ẩ","ẫ","ậ","ắ","ằ","ẳ","ẵ","ặ","ɑ","α","ά","ὰ","ἀ","ἁ","ἂ","ἃ","ἆ","ἇ","ᾂ","ᾃ","ᾰ","ᾱ","ᾲ","ᾳ","ᾴ","ᾶ","ᾷ","ⱥ","𐓘","𐓙","𐓚"]
 var arraa=["Ā","Á","Ǎ","À","Â","Ã","Ä","Å","Ǻ","Ά","Ă","Δ","Λ","Д","Ą"]
 var arrb=["b","ь","в","Ъ","Б","б","β","ƀ","ƃ","ɓ","ᵬ","ᶀ","ḃ","ḅ","ḇ","ꞗ"]
@@ -60,33 +63,70 @@ var arrzz=["Z","Ź","Ż","Ž","Ƶ","Ȥ","Ẓ","Ẕ","Ẑ","Ⱬ"]
 // var arr2=["↊"] 字体缺少
 // var arr3=["↋"] 字体缺少
 var arral=["A","a","B","b","C","c","D","d","E","e","F","f","G","g","H","h","I","i","J","j","K","k","L","l","M","m","N","n","O","o","P","p","Q","q","R","r","S","s","T","t","U","u","V","v","W","w","X","x","Y","y","Z","z","1","2","3","4","5","6","7","8","9","0"]
+var arrba=["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty"]
 var xab=setInterval(xabcheck,1)
+
+//判断伪本地化方式
 function xabcheck() {
+if (resen.checked) {
+  resph="Translation results"
+}
+if (pstype.value=="") {
+}
 if(enXA.checked) {
     xaoptions.style.display="block";
+    psshow.placeholder=resph
   }
 else if(enXB.checked){
   xaoptions.style.display="none";
+  psshow.placeholder=resph.split('').reverse().join("");
+}
+if(bracket.value == 4){
+  brcustom.style.display="block";
+}
+else if(bracket.value != 4){
+  brcustom.style.display="none";
+}
+if(front.checked){
+  hashdiv.style.display="block";
+  psshow.placeholder="[abc12]"+resph
+}
+else if(front.checked == ""){
+  hashdiv.style.display="none";
 }
 }
+//一般伪本地化
 function psloca() {
   all="";
   i=0;
   str = pstype.value;
+if (str!="") {
 if (enXA.checked) {
     for (let i in str) {
         var al = str[i];
         if(al=="a"){
           al=arra[Math.floor(Math.random()*53)]
           if (dbvowel.checked) {
-            al=al+al
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
           }
+          al=vow
+          }
+          j=0
+          vow=""
         }
         if(al=="A"){
           al=arraa[Math.floor(Math.random()*15)]
           if (dbvowel.checked) {
-            al=al+al
-          }                   
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
+          }
+          al=vow
+          }
+          j=0
+          vow=""                
         }
         if(al=="b"){
           al=arrb[Math.floor(Math.random()*16)]
@@ -108,15 +148,27 @@ if (enXA.checked) {
         }
         if(al=="e"){
           al=arre[Math.floor(Math.random()*15)]
-        if (dbvowel.checked) {
-            al=al+al
+          if (dbvowel.checked) {
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
           }
+          al=vow
+          }
+          j=0
+          vow=""
         }
         if(al=="E"){
           al=arree[Math.floor(Math.random()*11)]
-        if (dbvowel.checked) {
-            al=al+al
+          if (dbvowel.checked) {
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
           }
+          al=vow
+          }
+          j=0
+          vow=""
         }
         if(al=="f"){
           al=arrf[Math.floor(Math.random()*2)]
@@ -139,14 +191,26 @@ if (enXA.checked) {
         if(al=="i"){
           al=arri[Math.floor(Math.random()*11)]
           if (dbvowel.checked) {
-            al=al+al
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
           }
+          al=vow
+          }
+          j=0
+          vow=""
         }
         if(al=="I"){
           al=arrii[Math.floor(Math.random()*8)]
           if (dbvowel.checked) {
-            al=al+al
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
           }
+          al=vow
+          }
+          j=0
+          vow=""
         }
         if(al=="j"){
           al=arrj[Math.floor(Math.random()*1)]
@@ -181,14 +245,26 @@ if (enXA.checked) {
         if(al=="o"){
           al=arro[Math.floor(Math.random()*11)]
           if (dbvowel.checked) {
-            al=al+al
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
           }
+          al=vow
+          }
+          j=0
+          vow=""
         }
         if(al=="O"){
           al=arroo[Math.floor(Math.random()*10)]
           if (dbvowel.checked) {
-            al=al+al
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
           }
+          al=vow
+          }
+          j=0
+          vow=""
         }
         if(al=="p"){
           al=arrp[Math.floor(Math.random()*4)]
@@ -223,14 +299,26 @@ if (enXA.checked) {
         if(al=="u"){
           al=arru[Math.floor(Math.random()*19)]
           if (dbvowel.checked) {
-            al=al+al
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
           }
+          al=vow
+          }
+          j=0
+          vow=""
         }
         if(al=="U"){
           al=arruu[Math.floor(Math.random()*7)]
           if (dbvowel.checked) {
-            al=al+al
+        while(j<=vowelnum.value){
+          j++
+            vow+=al
           }
+          al=vow
+          }
+          j=0
+          vow=""
         }
         if(al=="v"){
           al=arrv[Math.floor(Math.random()*1)]
@@ -264,54 +352,112 @@ if (enXA.checked) {
         }
         if(al=="\n" && ctrlchr.checked){
           al="\n"
+          }
+        if (numcir.checked) {
+          numyi = new RegExp("1","g");
+          numer = new RegExp("2","g");
+          numsan = new RegExp("3","g");
+          numsi = new RegExp("4","g");
+          numwu = new RegExp("5","g");
+          numliu = new RegExp("6","g");
+          numqi = new RegExp("7","g");
+          numba = new RegExp("8","g");
+          numjiu = new RegExp("9","g");
+          al = al.replace(numyi, "①").replace(numer, "②").replace(numsan, "③").replace(numsi, "④").replace(numwu, "⑤").replace(numliu, "⑥").replace(numqi, "⑦").replace(numba, "⑧").replace(numjiu, "⑨");
           }          
         all += al; 
-        alll = all;
+        result = all;
+
+//微软式后缀
 function bracketMS() {
    while(n<(i/7)){
         n++
-        gth=gth+"!"  
+        suf=suf+"!"  
         if (n%3==0 && n!=(Math.floor(i/7)+1)) {
-          gth=gth+" ";
+          suf=suf+" ";
         } 
         } 
-        alll = "["+ all +" " +gth +"]";  
+        result = "["+ all +" " +suf +"]";  
         n=0;
-        gth="";
+        suf="";
 }
+
+//安卓式后缀
 function bracketA() {
-var arrba=["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty"]
    while(n<(i/7)){
         n++
-        gth = gth+arrba[(n-1)%20]+" " 
+        suf = suf+arrba[(n-1)%20]+" " 
         } 
-        alll = "["+ all +" " +gth +"]";  
+        result = "["+ all +" " +suf +"]";  
         n=0;
-        gth="";
+        suf="";
 }
+function bracketNum() {
+   while(n<(i/7)){
+        n++
+        suf += n
+        } 
+        result = "["+ all +" " +suf +"]";  
+        n=0;
+        suf="";
+}
+function bracketCus() {
+   while(n<=(i/cusexpn.value)){
+        n++
+        suf += cusexp.value+" "
+        } 
+        if (cusexp.value != "") {
+        result = cuspre.value + all +" " +suf +cussuf.value; 
+        } 
+        else{
+        result = cuspre.value + all +" " +cussuf.value; 
+        }
+        n=0;
+        suf="";
+}
+//判断添加后缀方式
         if (bracket.value=="1") {
           bracketMS()
         }
         if (bracket.value=="2") {
           bracketA()
         }
+        if (bracket.value=="3") {
+          bracketNum()
+        }
+         if (bracket.value=="4") {
+          bracketCus()
+        }
+//添加伪 Hash ID
         if (front.checked) {
-        while(m<5){
+        while(m<hashids.value){
           m++
           hashid = hashid + arral[Math.floor(Math.random()*62)]
         }
-        alll="[" + hashid +"]" +alll;  
+        result="[" + hashid +"]" +result;  
         hashid="";
         m=0;
         }
         else{
-          alll=alll;
+          result=result;
         }
       }
     }
-else if(enXB.checked){
-  alll=str.split('').reverse().join("");
-}
-        psshow.innerHTML = alll;
 
+//en-XB 字符串倒序伪本地化
+else if(enXB.checked){
+  result=str.split('').reverse().join("");
+}
+        psshow.innerHTML = result;
+        pshist += pstype.value +" → " +result +"<br>";
+        pshiss.innerHTML = pshist;
+
+}
+}
+function hisclear() {
+var clch=confirm("是否清空？")
+if (clch == true) {
+    pshist = ""
+    pshiss.innerHTML = pshist;
+}
 }
