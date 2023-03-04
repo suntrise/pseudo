@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <title>Pseudo-localization Translater Demo</title>
 <body>
-<h1>Pseudo-localization Translater Demo By <a href="https://suntrise.github.io/">STR</a> v3.0h</h1>
+<h1>Pseudo-localization Translater Demo By <a href="https://suntrise.github.io/">STR</a> v5.6h</h1>
 <input type="checkbox" name="res" id="resch" style="display: none;">
 <button onclick="notice.style.display='block'"><h2>What is Pseudo-localization?</h2></button>
 &nbsp;<a href="https://github.com/suntrise/pseudo">GitHub Home Page</a>
@@ -12,13 +12,31 @@
 <textarea style="width: 45%;" id="pstype" placeholder="Type here"></textarea>
 <textarea style="width: 45%;" id="psshow" readonly="readonly"placeholder="Translation results"></textarea>
 <br>
-<button style="height: auto;width: 300px;" onclick="psloca()"><h1>Pseudo-localized! </h1></button>
+<button style="height: 60px;width: 300px;font-size: 25px;" onclick="psloca()"><b>Pseudo-localized! </b></button>
+  <button style="height: 60px;width: 120px;font-size: 20px;" onclick="pshis.style.display='block'"><b>History</b></button>
+    <button style="height: 60px;width: 200px;font-size: 20px;" onclick="pslib.style.display='block'"><b>Character library</b></button>
+
 <div id="options">
 <h3>Options:<input type="radio" name="enxab" id="enXA" checked>en-XA（abc→ǻƀĉ）
 <input type="radio" name="enxab" id="enXB">en-XB（abc→cba）
 </h3> 
 <div id="xaoptions">
-Prefix and Suffix: <br>
+<b>Prefix and Suffix: </b>
+<br>
+<select name="brackets" id="bracket" style="height:30px;font-size:20px">
+<option value="0">Do not add prefix or suffix</h3></option>
+<option value="1">[Enclose in brackets and exclamations (MS-style pseudo-localization) !!!]</option>
+<option value="2">[Brackets + add English base numerals after the paragraph (Android-style pseudo-localization) one two three]</option> 
+<option value="2">custom</option> 
+</select>
+<div id="brcustom" style="display: none;">
+Prefix：<input type="text" name="" id="cuspre" style="width:50px;font-size:20px">
+Suffix：<input type="text" name="" id="cussuf" style="width:50px;font-size:20px">
+<br>
+Repeat <input type="text" name="" id="cusexp" style="width:100px;font-size:20px"> after the paragraph (Added every <input type="text" name="" id="cusexpn" style="width:40px;font-size:20px" value="7"> characters)
+</div>
+<br>
+<input type="checkbox" name="frontt" id="front">[Abc12]Add a pseudo Hash ID (a string of letters + numbers with a certain number of digits)
 <div id="hashdiv" style="visibility:hidden;">
 Number of digits：
 <select name="hash" id="hashids" style="height:30px;font-size:20px">
@@ -32,20 +50,6 @@ Number of digits：
 <option value="10">10</option>
 </select>
 </div>
-<b>Suffix:</b><select name="brackets" id="bracket" style="height:30px;font-size:20px">
-<option value="0">Do not add suffix</h3></option>
-<option value="1">[Enclose in brackets and exclamations (MS-style pseudo-localization) !!!]</option>
-<option value="2">[Brackets + add English base numerals after the paragraph (Android-style pseudo-localization) one two three]</option> 
-<option value="2">custom</option> 
-</select>
-<div id="brcustom" style="display: none;">
-Prefix：<input type="text" name="" id="cuspre" style="width:50px;font-size:20px">
-Suffix：<input type="text" name="" id="cussuf" style="width:50px;font-size:20px">
-<br>
-Repeat <input type="text" name="" id="cusexp" style="width:100px;font-size:20px"> after the paragraph (Added every <input type="text" name="" id="cusexpn" style="width:40px;font-size:20px" value="7"> characters)
-</div>
-<br>
-<input type="checkbox" name="frontt" id="front">[Abc12]Add a pseudo Hash ID (a string of letters + numbers with a certain number of digits)
 <input type="checkbox" name="vowel" id="dbvowel"> Double written vowels (a,e,i,o,u)
 <input type="checkbox" name="nums" id="numcir"> Replace the numbers 1-9 with circled numbers ①-⑨
 </div>
@@ -53,6 +57,8 @@ Repeat <input type="text" name="" id="cusexp" style="width:100px;font-size:20px"
 <br>
 &nbsp; <img style="position:fixed;bottom: 1%;right: 1%;" src="https://badges.toozhao.com/badges/01GGHCDJKDX06SY9T2BM6TJ8EJ/blue.svg" />
 <div class="notice" id="notice">
+	<button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="notice.style.display='none'">X</button>
+<br>
 Pseudolocalization (or qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB) is a way to simulate the localization process. And by simulating the localization process, it is possible to effectively investigate the problems that occur in the localization (such as characters that cannot be displayed normally, or incomplete segment display due to too long strings, etc.).
 <br>
 During pseudo-localization, English letters are replaced with accents and characters from other scripts. 
@@ -62,11 +68,18 @@ For Example：“Windows Photo Gallery” → “ [1iaT9][ Ẅĭпðøωś Þн�
 <br>
 More information: <a href="https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization">https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization</a>
 <br><br>
-This webpage demonstrates part of pseudo-localization.
-<br>
 More features will be updated later, thank you for your support!
-<br><br><br><br>
-<button style="position: absolute;bottom: 3%;right: 1%;height: 50px;width: 100px;font-size: 20px;" onclick="notice.style.display='none'">Close</button>
+</div>
+<div class="notice" id="pshis">
+<button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="pshis.style.display='none'">X</button>
+<button style="position: absolute;top: 0%;left: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="hisclear()">Clear</button>
+History：<br>
+<div id="pshiss"></div>
+</div>
+<div class="notice" id="pslib">
+<button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="pslib.style.display='none'">X</button>
+Character library：<br>
+<div id="pslibs"></div>
 </div>
 </body>
 <link rel="stylesheet" type="text/css" href="pslo.css"> 
