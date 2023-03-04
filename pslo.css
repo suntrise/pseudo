@@ -13,10 +13,13 @@ body{
     text-decoration: none;
   }
   .notice{
+    overflow: scroll;
     position: absolute;
-    top: 13%;
-    height: auto;
-    width: 80%;
+    padding: 5px;
+    top: 0%;
+    right: 0;
+    height: 100%;
+    width: 30%;
     display: none;
     border: 5px solid #07d;
     background: #fff;
