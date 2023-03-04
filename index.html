@@ -2,41 +2,83 @@
 <meta charset="utf-8">
 <title>伪本地化演示</title>
 <body>
+<input type="checkbox" name="res" id="resen" style="display: none;">
 <a href="https://suntrise.github.io/">← 回到主页</a>
-<h2>伪本地化演示 v2.2h</h2>
+<h2>伪本地化演示 v5.5h</h2>
 <button onclick="notice.style.display='block'"><h3>什么是伪本地化？</h3></button>
-&nbsp<a href="https://github.com/suntrise/pseudo/">GitHub 主页</a>
-&nbsp <a href="https://suntrise.github.io/pseudo/en.html">英文版界面</a>
-&nbsp <a href="https://github.com/suntrise/Pseudo-localization-Demo">程序(EXE)版</a>
+<button onclick="updlog.style.display='block'"><h3>更新日志</h3></button>
+&nbsp<a href="javascript:window.open('https://github.com/suntrise/pseudo')">GitHub 主页</a>
+&nbsp <a href="javascript:window.open('https://suntrise.github.io/pseudo/en.html')">英文版界面</a>
+&nbsp <a href="javascript:window.open('https://github.com/suntrise/Pseudo-localization-Demo')">程序(EXE)版</a>
 <br>
 <br>
 <textarea style="width: 45%;" id="pstype" placeholder="在这里输入要翻译的内容~"></textarea>
 <textarea style="width: 45%;" id="psshow" readonly="readonly"placeholder="结果会显示在这里~"></textarea>
 <br>
-  <button style="height: 60px;width: 180px;font-size: 20px;" onclick="psloca()"><b>翻译成伪语言</b></button>
+  <button id="psloc" style="height: 60px;width: 180px;font-size: 20px;" onclick="psloca()"><b>翻译成伪语言</b></button>  
+  <button style="height: 60px;width: 120px;font-size: 20px;" onclick="pshis.style.display='block'"><b>历史记录</b></button>
 <br>
 <div id="options">
-<h3>选项：</font-size=5><input type="radio" name="enxab" id="enXA" checked>en-XA（abc→ǻƀĉ）
+<h3>选项：<input type="radio" name="enxab" id="enXA" checked>en-XA（abc→ǻƀĉ）
 <input type="radio" name="enxab" id="enXB">en-XB（abc→cba）
 </h3>
 <div id="xaoptions">
-<b>前缀：</b>
-<input type="radio" name="frontt" id="nofront" checked>不添加前缀
-<input type="radio" name="frontt" id="front">[Abc12]添加前缀（伪 Hash ID）
-<br>
-<b>后缀：</b>
+<b>前后缀：</b>
 <select name="brackets" id="bracket" style="height:30px;font-size:20px">
-<option value="0">不添加后缀</h3></option>
-<option value="1">[括号+感叹号括起来（微软式伪本地化） !!!]</option>
-<option value="2">[括号+在语段后添加英文基数词（安卓式伪本地化） one two three]</option> 
+<option value="0">不添加前后缀</option>
+<option value="1">[中括号+感叹号括起来（微软式伪本地化） !!!]</option>
+<option value="2">[中括号+在语段后添加英文基数词（安卓式伪本地化） one two three]</option> 
+<option value="3">[中括号+在语段后添加阿拉伯数字 12345]</option>
+<option value="4">自定义</option>
 </select>
 <br>
-<b>其他：</b>
-<input type="checkbox" name="vowel" id="dbvowel"> 双写元音(a,e,i,o,u)
+<div id="brcustom" style="display: none;">
+<b>自定义：</b>
+前缀：<input type="text" name="" id="cuspre" style="width:50px;font-size:20px">
+后缀：<input type="text" name="" id="cussuf" style="width:50px;font-size:20px">
+在语段后重复添加 <input type="text" name="" id="cusexp" style="width:100px;font-size:20px">（每隔<input type="text" name="" id="cusexpn" style="width:50px;font-size:20px" value="7">个字符添加一次）
 </div>
+<br>
+<input type="checkbox" name="frontt" id="front">[Abc12]添加伪 Hash ID（由一定位数的字母+数字所构成的字符串）<br>
+<div id="hashdiv" style="display:none">
+位数：<select name="hash" id="hashids" style="height:30px;font-size:20px">
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5" selected>5</option> 
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+</div>
+<input type="checkbox" name="vowel" id="dbvowel"> 将元音重复书写
+<select id="vowelnum" style="height:30px;font-size:20px">
+<option value="1" selected>1（即双写）</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option> 
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+</select>
+次(a,e,i,o,u)
+</div>
+<input type="checkbox" name="nums" id="numcir"> 将数字 1-9 用带圆圈的数字 ①-⑨ 代替。
 </div>
 <img style="position:fixed;bottom: 1%;right: 1%;" src="https://badges.toozhao.com/badges/01GGFBWDY0MAKM9FJNVQGK5WDD/blue.svg" />
+<div class="notice" id="pshis">
+<button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="pshis.style.display='none'">X</button>
+<button style="position: absolute;top: 0%;left: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="hisclear()">清空</button>
+<br>
+<div id="pshiss">
+</div>
+</div>
 <div class="notice" id="notice">
+<button style="position: absolute;top: 0%;left: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="notice.style.display='none'">X</button>
+<br>
 伪本地化（pseudo-localization，语言环境名称为 qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB），是通过模拟本地化过程，以有效地调查在本地化中出现的问题（如字符无法正常显示，或因字符串过长而导致语段显示不完整等）。
 <br>
 在伪本地化过程中，英文字母会被替换为来自其他语言的重音符号和字符。（例如，字母 a 可以被 αäáàāāǎǎăăåå 中的任何一个替换。），还会添加分隔符等以增加字符串长度。
@@ -50,8 +92,11 @@
 该网页演示了伪本地化的一部分，即用不同的字符替换英文字母和添加分隔符。
 <br>
 更多功能将在之后更新，感谢大家的支持！
-<br><br><br><br>
-<button style="position: absolute;bottom: 3%;right: 1%;height: 50px;width: 100px;font-size: 20px;" onclick="notice.style.display='none'">关闭</button>
+</div>
+<div class="notice" id="updlog">
+<button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="updlog.style.display='none'">X</button>
+<br>
+暂无内容
 </div>
 </body>
 <link rel="stylesheet" type="text/css" href="pslo.css">    
