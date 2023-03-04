@@ -92,7 +92,6 @@ if (Math.floor(cusexpn.value)!=cusexpn.value) {
 }
 if(front.checked){
   hashdiv.style.display="block";
-  psshow.placeholder="[abc12]"+resph
 }
 else if(front.checked == ""){
   hashdiv.style.display="none";
