@@ -17,6 +17,7 @@
 <br>
   <button id="psloc" style="height: 60px;width: 180px;font-size: 20px;" onclick="psloca()"><b>翻译成伪语言</b></button>  
   <button style="height: 60px;width: 120px;font-size: 20px;" onclick="pshis.style.display='block'"><b>历史记录</b></button>
+    <button style="height: 60px;width: 120px;font-size: 20px;" onclick="pslib.style.display='block'"><b>字符库</b></button>
 <br>
 <div id="options">
 <h3>选项：<input type="radio" name="enxab" id="enXA" checked>en-XA（abc→ǻƀĉ）
@@ -33,9 +34,9 @@
 </select>
 <br>
 <div id="brcustom" style="display: none;">
-<b>自定义：</b>
 前缀：<input type="text" name="" id="cuspre" style="width:50px;font-size:20px">
 后缀：<input type="text" name="" id="cussuf" style="width:50px;font-size:20px">
+<br>
 在语段后重复添加 <input type="text" name="" id="cusexp" style="width:100px;font-size:20px">（每隔 <input type="text" name="" id="cusexpn" style="width:40px;font-size:20px" value="7"> 个字符添加一次）
 </div>
 <br>
@@ -96,8 +97,23 @@
 </div>
 <div class="notice" id="updlog">
 <button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="updlog.style.display='none'">X</button>
-<br>
-暂无内容
+更新日志
+<h3>v2.2h</h3>
+新增安卓式伪本地化
+<h3>v5.5h</h3>
+<ol>
+<li>新增在语段后重复数字的伪本地化（如[test 123]）；</li>
+<li>新增可自定义前后缀和语段后重复字段的伪本地化；</li>
+<li>伪 Hash ID（资源标识符）支持自定义位数（3-10位）；</li>
+<li>新增重复书写元音且能自定义重复次数；</li>
+<li>新增将数字1-9翻译为①-⑨；</li>
+<li>新增历史记录；</li>
+</ol>
+</div>
+<div class="notice" id="pslib">
+<button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="pslib.style.display='none'">X</button>
+字符库：<br>
+<div id="pslibs"></div>
 </div>
 </body>
 <link rel="stylesheet" type="text/css" href="pslo.css">    
