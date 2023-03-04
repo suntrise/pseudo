@@ -2,7 +2,8 @@
 <meta charset="utf-8">
 <title>Pseudo-localization Translater Demo</title>
 <body>
-<h1>Pseudo-localization Translater Demo By <a href="https://suntrise.github.io/">STR</a> v2.2h</h1>
+<h1>Pseudo-localization Translater Demo By <a href="https://suntrise.github.io/">STR</a> v3.0h</h1>
+<input type="checkbox" name="res" id="resch" style="display: none;">
 <button onclick="notice.style.display='block'"><h2>What is Pseudo-localization?</h2></button>
 &nbsp;<a href="https://github.com/suntrise/pseudo">GitHub Home Page</a>
 &nbsp;<a href="https://suntrise.github.io/pseudo">Chinese Page</a>
@@ -17,17 +18,36 @@
 <input type="radio" name="enxab" id="enXB">en-XB（abc→cba）
 </h3> 
 <div id="xaoptions">
-Prefix: <br>
-<input type="radio" name="frontt" id="nofront" checked>Do not add prefix
-<input type="radio" name="frontt" id="front">Add prefix
-<br>
+Prefix and Suffix: <br>
+<div id="hashdiv" style="visibility:hidden;">
+Number of digits：
+<select name="hash" id="hashids" style="height:30px;font-size:20px">
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5" selected>5</option> 
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+</div>
 <b>Suffix:</b><select name="brackets" id="bracket" style="height:30px;font-size:20px">
 <option value="0">Do not add suffix</h3></option>
 <option value="1">[Enclose in brackets and exclamations (MS-style pseudo-localization) !!!]</option>
 <option value="2">[Brackets + add English base numerals after the paragraph (Android-style pseudo-localization) one two three]</option> 
+<option value="2">custom</option> 
 </select>
+<div id="brcustom" style="display: none;">
+Prefix：<input type="text" name="" id="cuspre" style="width:50px;font-size:20px">
+Suffix：<input type="text" name="" id="cussuf" style="width:50px;font-size:20px">
 <br>
+Repeat <input type="text" name="" id="cusexp" style="width:100px;font-size:20px"> after the paragraph (Added every <input type="text" name="" id="cusexpn" style="width:40px;font-size:20px" value="7"> characters)
+</div>
+<br>
+<input type="checkbox" name="frontt" id="front">[Abc12]Add a pseudo Hash ID (a string of letters + numbers with a certain number of digits)
 <input type="checkbox" name="vowel" id="dbvowel"> Double written vowels (a,e,i,o,u)
+<input type="checkbox" name="nums" id="numcir"> Replace the numbers 1-9 with circled numbers ①-⑨
 </div>
 </div>
 <br>
