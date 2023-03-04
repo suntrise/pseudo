@@ -1,4 +1,4 @@
-var ver = "v5.5h"
+var ver = "v5.6h"
 var str = ""
 var all = "";
 var result = "";
@@ -87,6 +87,9 @@ if(bracket.value == 4){
 else if(bracket.value != 4){
   brcustom.style.display="none";
 }
+if (Math.floor(cusexpn.value)!=cusexpn.value) {
+  cusexpn.value=""
+}
 if(front.checked){
   hashdiv.style.display="block";
   psshow.placeholder="[abc12]"+resph
@@ -94,6 +97,33 @@ if(front.checked){
 else if(front.checked == ""){
   hashdiv.style.display="none";
 }
+pslibs.innerHTML = "A: "+arraa +"<br>a: "+arra 
++"<br>B: "+arrbb +"<br>b: "+arrb 
++"<br>C: "+arrcc +"<br>c: "+arrc 
++"<br>D: "+arrdd +"<br>d: "+arrd 
++"<br>E: "+arree +"<br>e: "+arre
++"<br>F: "+arrff +"<br>f: "+arrf
++"<br>G: "+arrgg +"<br>g: "+arrg
++"<br>H: "+arrhh +"<br>h: "+arrh
++"<br>I: "+arrhh +"<br>i: "+arri
++"<br>J: "+arrjj +"<br>j: "+arrj
++"<br>K: "+arrkk +"<br>k: "+arrk
++"<br>L: "+arrll +"<br>l: "+arrl
++"<br>M: "+arrmm +"<br>m: "+arrm
++"<br>N: "+arrnn +"<br>n: "+arrn
++"<br>O: "+arroo +"<br>o: "+arro
++"<br>P: "+arrpp +"<br>p: "+arrp
++"<br>Q: "+arrqq +"<br>q: "+arrq
++"<br>R: "+arrrr +"<br>r: "+arrr
++"<br>S: "+arrss +"<br>s: "+arrs
++"<br>T: "+arrtt +"<br>t: "+arrt
++"<br>U: "+arruu +"<br>u: "+arru
++"<br>V: "+arrvv +"<br>u: "+arrv
++"<br>W: "+arrww +"<br>u: "+arrw
++"<br>X: "+arrxx +"<br>u: "+arrx
++"<br>Y: "+arryy +"<br>u: "+arry
++"<br>Z: "+arrzz +"<br>u: "+arrz
+;
 }
 //一般伪本地化
 function psloca() {
