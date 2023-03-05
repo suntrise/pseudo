@@ -9,7 +9,7 @@
 <body>
 <input type="checkbox" name="res" id="resch" style="display: none;" checked>
 <a href="https://suntrise.github.io/">← 回到主页</a>
-<br>伪本地化翻译器演示 v2.2h<br>
+<br>伪本地化翻译器演示 v5.6h<br>
 <button style="height: 50px;" onclick="notice.style.display='block'"><b>什么是伪本地化？</b></button>
 <button style="height: 50px;" onclick="updlog.style.display='block'"><b>更新日志</b></button>
   <button style="height: 50px;width: auto;" onclick="pshis.style.display='block'"><b>历史记录</b></button>
@@ -45,7 +45,7 @@
 在语段后重复添加 <input type="text" name="" id="cusexp" style="width:100px;font-size:20px">（每隔 <input type="text" name="" id="cusexpn" style="width:40px;font-size:20px" value="7"> 个字符添加一次）
 </div>
 <br>
-<input type="checkbox" name="frontt" id="front">[Abc12]添加伪 Hash ID（由一定位数的字母+数字所构成的字符串）<br>
+<input type="checkbox" name="frontt" id="front">[Abc12]添加伪 Hash ID (资源标识符)(由一定位数的字母+数字所构成的字符串)<br>
 <div id="hashdiv" style="display:none">
 位数：<select name="hash" id="hashids" style="height:30px;font-size:20px">
 <option value="3">3</option>
@@ -76,7 +76,7 @@
 </div>
 </div>
 <img style="position:fixed;bottom: 1%;right: 1%;" src="https://badges.toozhao.com/badges/01GGFBWDY0MAKM9FJNVQGK5WDD/blue.svg" />
-<div class="notice" id="pshis" style="position:absolute;left:0;padding:5px;width: 90%;font-size: 15px;line-height: 20px;" id="notice">
+<div class="notice-mp" id="pshis" style="" id="notice">
 <button style="position: absolute;top: 0%;left: 0%;height: auto;width: auto;border-radius:0px;font-size: 15px;">
 <button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="pshis.style.display='none'">X</button>
 <button style="position: absolute;top: 0%;left: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="hisclear()">清空</button>
@@ -86,19 +86,31 @@
 </div>
 <br>
 <img src="https://badges.toozhao.com/badges/01GGFBWDY0MAKM9FJNVQGK5WDD/blue.svg" />
-<div class="notice" style="position:absolute;left:0;padding:5px;width: 90%;font-size: 15px;line-height: 20px;" id="notice">
-<button style="position: absolute;top: 0%;left: 0%;height: auto;width: auto;border-radius:0px;font-size: 15px;" onclick="notice.style.display='none'">X</button>
-<br>
+<div class="notice-mp" style="" id="notice">
+<button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius:0px;font-size: 25px;" onclick="notice.style.display='none'">X</button>
+<br><br>
 伪本地化（pseudo-localization，语言环境名称为 qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB），是模拟本地化过程的一种方式。而通过模拟本地化过程，能够有效地调查在本地化中出现的问题（如字符无法正常显示，或因字符串过长而导致语段显示不完整等）。在伪本地化过程中，英文字母会被替换为来自其他语言的重音符号和字符。（例如，字母 a 可以被 αäáàāāǎǎăăåå 中的任何一个替换。），还会添加分隔符等以增加字符串长度。”举例：“Windows 照片库（Windows Photo Gallery）”→“ [1iaT9][ Ẅĭпðøωś Þнôтŏ Ģάŀļєяÿ !!! !] ”
 <br>
   <a href="https://www.bilibili.com/read/cv18226873">https://www.bilibili.com/read/cv18226873</a>
 <br><br>
 更多功能将在之后更新，感谢大家的支持！
 </div>
-<div class="notice" id="updlog" style="position:absolute;left:0;padding:5px;width: 90%;font-size: 15px;line-height: 20px;" id="notice">
+<div class="notice-mp" id="updlog" style="" id="updlog">
 <button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="updlog.style.display='none'">X</button>
-<br>
-暂无内容
+更新日志
+<h3>v2.2h</h3>
+新增安卓式伪本地化
+<h3>v5.5h</h3>
+<ol>
+<li>新增在语段后重复数字的伪本地化（如[test 123]）；</li>
+<li>新增可自定义前后缀和语段后重复字段的伪本地化；</li>
+<li>伪 Hash ID（资源标识符）支持自定义位数（3-10位）；</li>
+<li>新增重复书写元音且能自定义重复次数；</li>
+<li>新增将数字1-9翻译为①-⑨；</li>
+<li>新增历史记录；</li>
+</ol>
+<h3>v5.6h</h3>
+新增字符库
 </div>
 </body>
 <link rel="stylesheet" type="text/css" href="pslo.css">    
