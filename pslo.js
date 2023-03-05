@@ -117,14 +117,14 @@ pslibs.innerHTML = "A: "+arraa +"<br>a: "+arra
 +"<br>S: "+arrss +"<br>s: "+arrs
 +"<br>T: "+arrtt +"<br>t: "+arrt
 +"<br>U: "+arruu +"<br>u: "+arru
-+"<br>V: "+arrvv +"<br>u: "+arrv
-+"<br>W: "+arrww +"<br>u: "+arrw
-+"<br>X: "+arrxx +"<br>u: "+arrx
-+"<br>Y: "+arryy +"<br>u: "+arry
-+"<br>Z: "+arrzz +"<br>u: "+arrz
++"<br>V: "+arrvv +"<br>v: "+arrv
++"<br>W: "+arrww +"<br>w: "+arrw
++"<br>X: "+arrxx +"<br>x: "+arrx
++"<br>Y: "+arryy +"<br>y: "+arry
++"<br>Z: "+arrzz +"<br>z: "+arrz
 ;
 }
-//一般伪本地化
+//en-XA 伪本地化
 function psloca() {
   all="";
   i=0;
