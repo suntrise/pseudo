@@ -19,10 +19,26 @@ body{
     top: 0%;
     right: 0;
     height: 100%;
-    width: 30%;
+    width: 35%;
     display: none;
     border: 5px solid #07d;
     background: #fff;
+    word-break:break-all
+  }
+    .notice-mp{
+    overflow: scroll;
+    position: absolute;
+    padding: 5px;
+    top: 0%;
+    left: 0;
+    height: 100%;
+    width: 98%;
+    display: none;
+    border: 5px solid #07d;
+    font-size: 15px;
+    line-height: 20px;
+    background: #fff;
+    word-break:break-all
   }
     button{
     color: #fff;
@@ -31,5 +47,5 @@ body{
     background: #07d;
   }
   button:hover {
-    border: 2px solid #fff;
+    background: #15b;
 }
