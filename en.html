@@ -5,8 +5,8 @@
 <h1>Pseudo-localization Translater Demo By <a href="https://suntrise.github.io/">STR</a> v5.6h</h1>
 <input type="checkbox" name="res" id="resch" style="display: none;">
 <button onclick="notice.style.display='block'"><h2>What is Pseudo-localization?</h2></button>
-&nbsp;<a href="https://github.com/suntrise/pseudo">GitHub Home Page</a>
-&nbsp;<a href="https://suntrise.github.io/pseudo">Chinese Page</a>
+&nbsp;<a href="javascript:window.open('https://github.com/suntrise/pseudo')">GitHub Home Page</a>
+&nbsp;<a href="javascript:window.open('https://suntrise.github.io/pseudo')">Chinese Page</a>
 <br>
 <br>
 <textarea style="width: 45%;" id="pstype" placeholder="Type here"></textarea>
@@ -22,13 +22,14 @@
 </h3> 
 <div id="xaoptions">
 <b>Prefix and Suffix: </b>
-<br>
 <select name="brackets" id="bracket" style="height:30px;font-size:20px">
 <option value="0">Do not add prefix or suffix</h3></option>
-<option value="1">[Enclose in brackets and exclamations (MS-style pseudo-localization) !!!]</option>
+<option value="1">[Brackets + add exclamations after the paragraph (MS-style pseudo-localization) !!!]</option>
 <option value="2">[Brackets + add English base numerals after the paragraph (Android-style pseudo-localization) one two three]</option> 
-<option value="2">custom</option> 
+<option value="3">[Brackets + add Arabic numerals after the paragraph 12345]</option> 
+<option value="4">Custom</option> 
 </select>
+<br>
 <div id="brcustom" style="display: none;">
 Prefix：<input type="text" name="" id="cuspre" style="width:50px;font-size:20px">
 Suffix：<input type="text" name="" id="cussuf" style="width:50px;font-size:20px">
@@ -36,8 +37,8 @@ Suffix：<input type="text" name="" id="cussuf" style="width:50px;font-size:20px
 Repeat <input type="text" name="" id="cusexp" style="width:100px;font-size:20px"> after the paragraph (Added every <input type="text" name="" id="cusexpn" style="width:40px;font-size:20px" value="7"> characters)
 </div>
 <br>
-<input type="checkbox" name="frontt" id="front">[Abc12]Add a pseudo Hash ID (a string of letters + numbers with a certain number of digits)
-<div id="hashdiv" style="visibility:hidden;">
+<input type="checkbox" name="frontt" id="front">[Abc12]Add a pseudo Hash ID (Resource Identifier)(a string of letters + numbers with a certain number of digits)<br>
+<div id="hashdiv" style="display: none;">
 Number of digits：
 <select name="hash" id="hashids" style="height:30px;font-size:20px">
 <option value="3">3</option>
@@ -50,7 +51,21 @@ Number of digits：
 <option value="10">10</option>
 </select>
 </div>
-<input type="checkbox" name="vowel" id="dbvowel"> Double written vowels (a,e,i,o,u)
+
+<input type="checkbox" name="vowel" id="dbvowel"> Repeat the vowel 
+<select id="vowelnum" style="height:30px;font-size:20px">
+<option value="1" selected>1 (i.e. double writing)</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option> 
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+</select>
+times
+<br>
 <input type="checkbox" name="nums" id="numcir"> Replace the numbers 1-9 with circled numbers ①-⑨
 </div>
 </div>
@@ -73,7 +88,7 @@ More features will be updated later, thank you for your support!
 <div class="notice" id="pshis">
 <button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="pshis.style.display='none'">X</button>
 <button style="position: absolute;top: 0%;left: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="hisclear()">Clear</button>
-History：<br>
+<br>
 <div id="pshiss"></div>
 </div>
 <div class="notice" id="pslib">
