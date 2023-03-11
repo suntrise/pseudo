@@ -362,10 +362,10 @@ if (enXA.checked) {
           al=arrww[Math.floor(Math.random()*6)]
         }
         if(al=="x"){
-          al=arrx[Math.floor(Math.random()*2)]
+          al=arrx[Math.floor(Math.random()*3)]
         }
         if(al=="X"){
-          al=arrxx[Math.floor(Math.random()*2)]
+          al=arrxx[Math.floor(Math.random()*3)]
         }
         if(al=="y"){
           al=arry[Math.floor(Math.random()*5)]
