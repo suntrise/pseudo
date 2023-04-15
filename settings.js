@@ -12,11 +12,11 @@ function check(){
 }
 
 function setzh() {
-  zh.style.color = "#000";
-  zh.style.background = "#f5f5f5";
+  zh.style.color = "#fff";
+  zh.style.background = "#07d";
   zh.innerHTML = "中文"
-  en.style.color = "#fff";
-  en.style.background = "#07d";
+  en.style.color = "#000";
+  en.style.background = "#f5f5f5";
   en.innerHTML = "英文"
   resph="结果会显示在这里~"
   title.innerHTML = "伪本地化演示"
@@ -38,6 +38,7 @@ function setzh() {
   prs2.innerHTML = "[中括号+在语段后添加英文基数词（安卓式伪本地化） one two three]"
   prs3.innerHTML = "[中括号+在语段后添加阿拉伯数字 12345]"
   prs4.innerHTML = "自定义"
+  cuset.innerHTML = "在语段后重复添加 "
   cusnt.innerHTML = "每隔多少个字符重复一次："
   hashtxt.innerHTML = "[Abc12]添加伪 Hash ID (资源标识符)(由一定位数的字母+数字所构成的字符串)"
   dbvtxt.innerHTML = "元音重复书写次数："
@@ -48,11 +49,11 @@ function setzh() {
   logtxt.innerHTML = "更新日志<h3>v2.2h</h3>新增安卓式伪本地化<h3>v5.5h</h3><ol><li>新增在语段后重复数字的伪本地化（如[test 123]）；</li><li>新增可自定义前后缀和语段后重复字段的伪本地化；</li><li>伪 Hash ID（资源标识符）支持自定义位数（3-10位）；</li><li>新增重复书写元音且能自定义重复次数；</li><li>新增将数字1-9翻译为①-⑨；</li><li>新增历史记录；</li></ol><h3>v5.6h</h3>新增字符库"
 }
 function seten() {
-  zh.style.color = "#fff";
-  zh.style.background = "#07d";
+  zh.style.color = "#000";
+  zh.style.background = "#f5f5f5";
   zh.innerHTML = "Chinese"
-  en.style.color = "#000";
-  en.style.background = "#f5f5f5";
+  en.style.color = "#fff";
+  en.style.background = "#07d";
   en.innerHTML = "English"
   resph="Translation Results"
   title.innerHTML = "Pseudo-localization Translater Demo"
@@ -73,6 +74,7 @@ function seten() {
   prs2.innerHTML = "[Brackets + add English base numerals after the paragraph (Android-style pseudo-localization) one two three]"
   prs3.innerHTML = "[Brackets + add Arabic numerals after the paragraph 12345]"
   prs4.innerHTML = "Custom"
+  cuset.innerHTML = "Add what repeatedly after the paragraph: "
   cusnt.innerHTML = "Repeat every how many characters: "
   hashtxt.innerHTML = "[Abc12]Add a pseudo Hash ID (Resource Identifier)(a string of letters + numbers with a certain number of digits)"
   dbvtxt.innerHTML = "Vowel repeating times: "
