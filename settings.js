@@ -24,7 +24,6 @@ function setzh() {
   bkhome.style.display = "block";
   bkhome.innerHTML = "← 回到主页"
   what.innerHTML = "什么是伪本地化？"
-  uplog.style.height = "60px"
   uplog.innerHTML = "更新日志"
   pjhome.innerHTML = "项目主页"
   exever.innerHTML = "程序(EXE)版"
@@ -64,8 +63,6 @@ function seten() {
   pjhome.innerHTML = "Github"
   exever.innerHTML = "Exe Version"
   pstype.placeholder = "Type Here"
-  psbtn.style.width = "300px"
-  psbtn.style.fontSize = "25px"
   psbtn.innerHTML = "Pseudo-localized!"
   hisbtn.innerHTML = "History"
   chrbtn.innerHTML = "Character library"
