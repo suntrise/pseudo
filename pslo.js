@@ -5,7 +5,6 @@ var result = "";
 var suf="";
 var hashid=""
 var vow="";
-var resph="Translate Results"
 var pshist=""
 var m=n=j=0;
 var arra=["ä","ā","á","ǎ","à","ă","å","ǻ","ã","ǟ","ǡ","ǻ","ȁ","ȃ","ȧ","ᶏ","ḁ","ẚ","ạ","ả","ấ","ầ","ẩ","ẫ","ậ","ắ","ằ","ẳ","ẵ","ặ","ɑ","α","ά","ὰ","ἀ","ἁ","ἂ","ἃ","ἆ","ἇ","ᾂ","ᾃ","ᾰ","ᾱ","ᾲ","ᾳ","ᾴ","ᾶ","ᾷ","ⱥ","𐓘","𐓙","𐓚"]
@@ -68,11 +67,6 @@ var xab=setInterval(xabcheck,1)
 
 //判断伪本地化方式
 function xabcheck() {
-if (resch.checked) {
-  resph="结果会显示在这里~"
-}
-if (pstype.value=="") {
-}
 if(enXA.checked) {
     xaoptions.style.display="block";
     psshow.placeholder=resph
@@ -81,11 +75,11 @@ else if(enXB.checked){
   xaoptions.style.display="none";
   psshow.placeholder=resph.split('').reverse().join("");
 }
-if(bracket.value == 4){
-  brcustom.style.display="block";
+if(suffix.value == 4){
+  prscus.style.display="block";
 }
-else if(bracket.value != 4){
-  brcustom.style.display="none";
+else if(suffix.value != 4){
+  prscus.style.display="none";
 }
 if (Math.floor(cusexpn.value)!=cusexpn.value) {
   cusexpn.value=""
@@ -398,7 +392,7 @@ if (enXA.checked) {
         result = all;
 
 //微软式后缀
-function bracketMS() {
+function suffixMS() {
    while(n<(i/7)){
         n++
         suf=suf+"!"  
@@ -412,7 +406,7 @@ function bracketMS() {
 }
 
 //安卓式后缀
-function bracketA() {
+function suffixA() {
    while(n<(i/7)){
         n++
         suf = suf+arrba[(n-1)%20]+" " 
@@ -421,7 +415,7 @@ function bracketA() {
         n=0;
         suf="";
 }
-function bracketNum() {
+function suffixNum() {
    while(n<(i/7)){
         n++
         suf += n
@@ -430,7 +424,7 @@ function bracketNum() {
         n=0;
         suf="";
 }
-function bracketCus() {
+function suffixCus() {
    while(n<=(i/cusexpn.value)){
         n++
         suf += cusexp.value+" "
@@ -445,17 +439,17 @@ function bracketCus() {
         suf="";
 }
 //判断添加后缀方式
-        if (bracket.value=="1") {
-          bracketMS()
+        if (suffix.value=="1") {
+          suffixMS()
         }
-        if (bracket.value=="2") {
-          bracketA()
+        if (suffix.value=="2") {
+          suffixA()
         }
-        if (bracket.value=="3") {
-          bracketNum()
+        if (suffix.value=="3") {
+          suffixNum()
         }
-         if (bracket.value=="4") {
-          bracketCus()
+         if (suffix.value=="4") {
+          suffixCus()
         }
 //添加伪 Hash ID
         if (front.checked) {
