@@ -1,4 +1,3 @@
-var ver = "v5.6h"
 var str = ""
 var all = "";
 var result = "";
@@ -122,7 +121,7 @@ pslibs.innerHTML = "A: "+arraa +"<br>a: "+arra
 function psloca() {
   all="";
   i=0;
-  str = pstype.value;
+  str = pstype.value
 if (str!="") {
 if (enXA.checked) {
     for (let i in str) {
@@ -373,9 +372,6 @@ if (enXA.checked) {
         if(al=="Z"){
           al=arrzz[Math.floor(Math.random()*10)]
         }
-        if(al=="\n" && ctrlchr.checked){
-          al="\n"
-          }
         if (numcir.checked) {
           numyi = new RegExp("1","g");
           numer = new RegExp("2","g");
@@ -389,11 +385,12 @@ if (enXA.checked) {
           al = al.replace(numyi, "①").replace(numer, "②").replace(numsan, "③").replace(numsi, "④").replace(numwu, "⑤").replace(numliu, "⑥").replace(numqi, "⑦").replace(numba, "⑧").replace(numjiu, "⑨");
           }          
         all += al; 
-        result = all;
+    result = all;
+        
 
 //微软式后缀
 function suffixMS() {
-   while(n<(i/7)){
+   while(i>2 && n<(i/7)){
         n++
         suf=suf+"!"  
         if (n%3==0 && n!=(Math.floor(i/7)+1)) {
