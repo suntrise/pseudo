@@ -412,6 +412,7 @@ function suffixA() {
         n=0;
         suf="";
 }
+//数字式后缀
 function suffixNum() {
    while(n<(i/7)){
         n++
@@ -421,6 +422,7 @@ function suffixNum() {
         n=0;
         suf="";
 }
+//自定义后缀
 function suffixCus() {
    while(n<=(i/cusexpn.value)){
         n++
@@ -475,15 +477,6 @@ else if(enXB.checked){
 }
 }
 function hisclear() {
-var clch=""
-if (resch.checked) {
-clch=confirm("是否清空？")
-}
-else{
-clch=confirm("Clear all？")
-}
-if (clch == true) {
     pshist = ""
     pshiss.innerHTML = pshist;
-}
 }
