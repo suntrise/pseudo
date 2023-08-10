@@ -1,18 +1,18 @@
 <!DOCTYPE HTML>
 <meta charset="utf-8">
-<title>Pseudo-localization Translater Demo</title>
+<title>Pseudo-Localization Translator Demo</title>
 <body>
 <h1>Pseudo-localization Translater Demo By <a href="https://suntrise.github.io/">STR</a> v5.6h</h1>
 <input type="checkbox" name="res" id="resch" style="display: none;">
-<button onclick="notice.style.display='block'"><h2>What is Pseudo-localization?</h2></button>
-&nbsp;<a href="javascript:window.open('https://github.com/suntrise/pseudo')">GitHub Home Page</a>
-&nbsp;<a href="javascript:window.open('https://suntrise.github.io/pseudo')">Chinese Page</a>
+<button onclick="notice.style.display='block'"><h2>What is pseudo-localization?</h2></button>
+&nbsp;<a href="javascript:window.open('https://github.com/suntrise/pseudo')">GitHub Profile Page</a>
+&nbsp;<a href="javascript:window.open('https://suntrise.github.io/pseudo')">Chinese Version</a>
 <br>
 <br>
 <textarea style="width: 45%;" id="pstype" placeholder="Type here"></textarea>
 <textarea style="width: 45%;" id="psshow" readonly="readonly"placeholder="Translation results"></textarea>
 <br>
-<button style="height: 60px;width: 300px;font-size: 25px;" onclick="psloca()"><b>Pseudo-localized! </b></button>
+<button style="height: 60px;width: 300px;font-size: 25px;" onclick="psloca()"><b>Pseudo-Localize! </b></button>
   <button style="height: 60px;width: 120px;font-size: 20px;" onclick="pshis.style.display='block'"><b>History</b></button>
     <button style="height: 60px;width: 200px;font-size: 20px;" onclick="pslib.style.display='block'"><b>Character library</b></button>
 
@@ -54,7 +54,7 @@ Number of digits：
 
 <input type="checkbox" name="vowel" id="dbvowel"> Repeat the vowel 
 <select id="vowelnum" style="height:30px;font-size:20px">
-<option value="1" selected>1 (i.e. double writing)</option>
+<option value="1" selected>1 (Double vowels)</option>
 <option value="2">2</option>
 <option value="3">3</option>
 <option value="4">4</option>
@@ -66,7 +66,7 @@ Number of digits：
 </select>
 times
 <br>
-<input type="checkbox" name="nums" id="numcir"> Replace the numbers 1-9 with circled numbers ①-⑨
+<input type="checkbox" name="nums" id="numcir"> Replace digits 1-9 with circled digits ①-⑨
 </div>
 </div>
 <br>
@@ -74,16 +74,16 @@ times
 <div class="notice" id="notice">
 	<button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="notice.style.display='none'">X</button>
 <br>
-Pseudolocalization (or qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB) is a way to simulate the localization process. And by simulating the localization process, it is possible to effectively investigate the problems that occur in the localization (such as characters that cannot be displayed normally, or incomplete segment display due to too long strings, etc.).
+Pseudolocalization (or qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB) is a way to simulate the localization process. And by simulating the localization process, it is possible to effectively investigate issues that might occur during localization process (incorrect display of characters due to string length, etc.)
 <br>
 During pseudo-localization, English letters are replaced with accents and characters from other scripts. 
-(For example, the letter a is replaced by any one of αäáàāāǎǎăăåå selected at random. ), separators etc. are also added to increase the string length.
+(For example, the letter a is replaced by any one of αäáàāāǎǎăăåå selected at random.) Separators and other symbols are also added to increase the string length.
 <br>
-For Example：“Windows Photo Gallery” → “ [1iaT9][ Ẅĭпðøωś Þнôтŏ Ģάŀļєяÿ !!! !] ”
+Example："Windows Photo Gallery" → "[1iaT9][ Ẅĭпðøωś Þнôтŏ Ģάŀļєяÿ !!! !]"
 <br>
 More information: <a href="javascript:window.open('https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization')">https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization</a>
 <br><br>
-More features will be updated later, thank you for your support!
+More features will be supported in future updates. Thanks for your support!
 </div>
 <div class="notice" id="pshis">
 <button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="pshis.style.display='none'">X</button>
