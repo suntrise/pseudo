@@ -1,5 +1,5 @@
 var lang = 0;
-var ver = "v5.7h"
+var ver = "v6.0h"
 //默认语言设置
 check()
 function check(){
@@ -22,7 +22,7 @@ function setzh() {
   title.innerHTML = "伪本地化演示"
   title1.innerHTML = "伪本地化演示 "+ver +" By STR"
   bkhome.style.display = "block";
-  bkhome.innerHTML = "← 回到主页"
+  hmtext.innerHTML = "← 回到主页"
   what.innerHTML = "什么是伪本地化？"
   uplog.innerHTML = "更新日志"
   pjhome.innerHTML = "项目主页"
@@ -47,7 +47,7 @@ function setzh() {
   nctxt.innerHTML = "将数字 1-9 用带圆圈的数字 ①-⑨ 代替。"
   clear.innerHTML = "清空";
   whattxt.innerHTML = "伪本地化（pseudo-localization，语言环境名称为 qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB），是通过模拟本地化过程，以有效地调查在本地化中出现的问题（如字符无法正常显示，或因字符串过长而导致语段显示不完整等）。<br>在伪本地化过程中，英文字母会被替换为来自其他语言的重音符号和字符。（例如，字母 a 可以被 αäáàāāǎǎăăåå 中的任何一个替换。），还会添加分隔符等以增加字符串长度。<br>举例：“Windows Photo Gallery（Windows 照片库）”→“ [1iaT9][ Ẅĭпðøωś Þнôтŏ Ģάŀļєяÿ !!! !] ”<br>更多信息：<a href='https://docs.microsoft.com/zh-cn/globalization/methodology/pseudolocalization')' target='_blank'>https://docs.microsoft.com/zh-cn/globalization/methodology/pseudolocalization</a><br><a href='https://zhuanlan.zhihu.com/p/613293858' target='_blank'>https://zhuanlan.zhihu.com/p/613293858</a><br><br>该网页演示了伪本地化的一部分，即用不同的字符替换英文字母和添加分隔符。<br>更多功能将在之后更新，感谢大家的支持！"
-  logtxt.innerHTML = "更新日志<h3>v2.2h</h3>新增安卓式伪本地化<h3>v5.5h</h3><ol><li>新增在语段后重复数字的伪本地化（如[test 123]）；</li><li>新增可自定义前后缀和语段后重复字段的伪本地化；</li><li>伪 Hash ID（资源标识符）支持自定义位数（3-10位）；</li><li>新增重复书写元音且能自定义重复次数；</li><li>新增将数字1-9翻译为①-⑨；</li><li>新增历史记录；</li></ol><h3>v5.6h</h3>新增字符库<h3>v5.7h</h3>修改微软式伪本地化规则"
+  logtxt.innerHTML = "更新日志<h3>v6.0h</h3>修改界面为 MDL 样式<h3>v5.7h</h3>修改微软式伪本地化规则<h3>v5.6h</h3>新增字符库<h3>v2.2h</h3>新增安卓式伪本地化<h3>v5.5h</h3><ol><li>新增在语段后重复数字的伪本地化（如[test 123]）；</li><li>新增可自定义前后缀和语段后重复字段的伪本地化；</li><li>伪 Hash ID（资源标识符）支持自定义位数（3-10位）；</li><li>新增重复书写元音且能自定义重复次数；</li><li>新增将数字1-9翻译为①-⑨；</li><li>新增历史记录；</li></ol>"
 }
 function seten() {
   zh.style.color = "#000";
