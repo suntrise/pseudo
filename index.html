@@ -1,32 +1,55 @@
 <!DOCTYPE HTML>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
 <meta charset="utf-8">
 <head>
     <title id="title"></title>
-    <link rel="icon" href="ps.png" type="image/x-icon">
+    <link rel="icon" href="pslo.png" type="image/x-icon">
 </head>
 <body>
-<a href="https://suntrise.github.io/" id="bkhome"></a>
-<h2 id="title1"></h2>
-<button onclick="notice.style.display='block'" id="what" style="height: 60px;font-size: 20px;"></button>
-<button onclick="updlog.style.display='block'" id="uplog" style="height: 60px;font-size: 20px;"></button>
+<div id="bkhome">
+<a href="https://suntrise.github.io/" class="mdl-chip">
+    <span class="mdl-chip__text" id="hmtext" style="font-size: 20px;"></span>
+</a>
+</div>
+<div id="pslo_page" style="margin-left: 10%;">
+<h3 id="title1"></h3>
+<button onclick="notice.style.display='block'" id="what" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="height: 50px;font-size: 20px;"></button>
+<button onclick="updlog.style.display='block'" id="uplog" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="height: 50px;font-size: 20px;"></button>
 &nbsp<a href="https://github.com/suntrise/pseudo" target="_blank" id="pjhome"></a>
 &nbsp<a href="https://github.com/suntrise/Pseudo-localization-Demo" target="_blank" id="exever"></a>  
 &nbsp<button id="zh" onclick="setzh();"></button>
 <button id="en" onclick="seten();"></button>
 <br>
-<br>
-<textarea style="width: 45%;" id="pstype" placeholder=""></textarea>
-<textarea style="width: 45%;background: #f5f5f5;" id="psshow" readonly="readonly"placeholder=""></textarea>
-<br>
-  <button id="psbtn" style="height: 60px;width:;font-size: 20px;" onclick="psloca()"></button>  
-  <button style="height: 60px;font-size: 20px;" onclick="pshis.style.display='block'" id="hisbtn"></button>
-    <button style="height: 60px;font-size: 20px;" onclick="pslib.style.display='block'" id="chrbtn"></button>
+
+<form action="#">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 80%;border-radius:5px;font-size: 20px;">
+      <textarea class="mdl-textfield__input" type="text" rows= "3" id="pstype" style="font-size: 20px;"></textarea>
+      <label class="mdl-textfield__label" for="pstype"></label>
+    </div>
+  </form><form action="#">
+    <div class="mdl-textfield mdl-js-textfield" style="width: 80%;border-radius:5px;font-size: 20px;">
+      <textarea class="mdl-textfield__input" type="text" rows= "3" id="psshow" style="font-size: 20px;background: #fff;" readonly="readonly"></textarea>
+      <label class="mdl-textfield__label" for="psshow"></label>
+    </div>
+  </form>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="psbtn" style="height: 60px;width:;font-size: 20px;" onclick="psloca()"></button>  
+  &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " id="hisbtn" style="height: 60px;font-size: 20px;" onclick="pshis.style.display='block'"></button>
+  &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " style="height: 60px;font-size: 20px;" onclick="pslib.style.display='block'" id="chrbtn"></button>
 <br>
 <div id="options">
-<h3><span id="opttxt"></span>
-    <input type="radio" name="enxab" id="enXA" checked>en-XA（abc→ǻƀĉ）
-<input type="radio" name="enxab" id="enXB">en-XB（abc→cba）
-</h3>
+<h4><span id="opttxt"></span>
+    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="enXA">
+        <input type="radio" id="enXA" class="mdl-radio__button" name="enxab" checked>
+        <span class="mdl-radio__label" style="font-size: 18px;">en-XA（abc→ǻƀĉ）</span>
+      </label>
+    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="enXB">
+        <input type="radio" id="enXB" class="mdl-radio__button" name="enxab">
+        <span class="mdl-radio__label" style="font-size: 18px;">en-XB（abc→cba）</span>
+      </label>
+</h4>
 <div id="xaoptions">
 <b id="prstxt"></b>
 <select name="presufs" id="suffix" style="height:30px;font-size:20px">
@@ -36,7 +59,6 @@
 <option id="prs3" value="3"></option>
 <option id="prs4" value="4"></option>
 </select>
-<br>
 <div id="prscus" style="display: none;">
 <span id="cuspt"></span><input type="text" name="" id="cuspre" style="width:50px;font-size:20px" value="[">
 <span id="cusst"></span><input type="text" name="" id="cussuf" style="width:50px;font-size:20px" value="]">
@@ -44,7 +66,11 @@
 <span id="cuset"></span><input type="text" name="" id="cusexp" style="width:100px;font-size:20px"> <span id="cusnt"></span><input type="text" name="" id="cusexpn" style="width:40px;font-size:20px" value="7">
 </div>
 <br>
-<input type="checkbox" name="frontt" id="front"><span id="hashtxt"></span><br>
+<input type="checkbox" name="other" id="esccha" style="display: none;">
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="front">
+    <input type="checkbox" name="frontt" id="front" class="mdl-checkbox__input">
+    <span class="mdl-checkbox__label" id="hashtxt" style="font-size: 20px;"></span>
+  </label>
 <div id="hashdiv" style="display:none">
 <span id="hashdit"></span><select name="hash" id="hashids" style="height:30px;font-size:20px">
 <option value="3">3</option>
@@ -57,7 +83,10 @@
 <option value="10">10</option>
 </select>
 </div>
-<input type="checkbox" name="vowel" id="dbvowel"><span id="dbvtxt"></span>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="dbvowel">
+    <input type="checkbox" name="vowel" id="dbvowel" class="mdl-checkbox__input">
+    <span class="mdl-checkbox__label" id="dbvtxt" style="font-size: 20px;"></span>
+  
 <select id="vowelnum" style="height:30px;font-size:20px">
 <option value="1" id="dbv1" selected>1</option>
 <option value="2">2</option>
@@ -69,8 +98,11 @@
 <option value="8">8</option>
 <option value="9">9</option>
 </select>
-<br>
-<input type="checkbox" name="nums" id="numcir"><span id="nctxt"></span>
+</label>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="numcir">
+    <input type="checkbox" name="nums" id="numcir" class="mdl-checkbox__input">
+    <span class="mdl-checkbox__label" id="nctxt" style="font-size: 20px;"></span>
+  </label>
 </div>
 </div>
 <img style="position:fixed;bottom: 1%;right: 1%;" src="https://badges.toozhao.com/badges/01GGFBWDY0MAKM9FJNVQGK5WDD/blue.svg" />
@@ -92,6 +124,7 @@
 <div class="notice" id="pslib">
 <button style="position: absolute;top: 0%;right: 0%;height: auto;width: auto;border-radius: 0px;font-size: 25px;" onclick="pslib.style.display='none'">X</button>
 <br><div id="pslibs"></div>
+</div>
 </div>
 </body>
 <link rel="stylesheet" type="text/css" href="pslo.css">    
