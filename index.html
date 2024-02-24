@@ -25,15 +25,23 @@
 <br>
 
 <form action="#">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 80%;border-radius:5px;font-size: 20px;">
-      <textarea class="mdl-textfield__input" type="text" rows= "3" id="pstype" style="font-size: 20px;"></textarea>
+  <table border="0" width="80%" cellpadding="10" cellspacing="10">
+    <tr>
+      <td>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;border-radius:5px;font-size: 20px;">
+      <textarea class="mdl-textfield__input" type="text" rows= "5" id="pstype" style="font-size: 20px;"></textarea>
       <label class="mdl-textfield__label" for="pstype"></label>
     </div>
-  </form><form action="#">
-    <div class="mdl-textfield mdl-js-textfield" style="width: 80%;border-radius:5px;font-size: 20px;">
-      <textarea class="mdl-textfield__input" type="text" rows= "3" id="psshow" style="font-size: 20px;background: #fff;" readonly="readonly"></textarea>
+  </form></td>
+  <td>
+  <form action="#">
+    <div class="mdl-textfield mdl-js-textfield" style="width: 100%;border-radius:5px;font-size: 20px;">
+      <textarea class="mdl-textfield__input" type="text" rows= "5" id="psshow" style="font-size: 20px;background: #fff;" readonly="readonly"></textarea>
       <label class="mdl-textfield__label" for="psshow"></label>
     </div>
+  </td>
+  </tr>
+  </table>
   </form>
   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="psbtn" style="height: 50px;font-size: 20px;" onclick="psloca()"></button>  
   &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " id="hisbtn" style="height:50px;font-size: 20px;" onclick="pshis.style.display='block'"></button>
