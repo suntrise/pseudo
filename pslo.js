@@ -124,8 +124,22 @@ function psloca() {
   str = pstype.value
 if (str!="") {
 if (enXA.checked) {
-    for (let i in str) {
-        var al = str[i];
+    for (let i = 0; i < str.length; ++i) {
+        let al = str[i];
+        if(al=="\\" && keepEsc.checked == true){
+          if(str[i+1]=="x"){
+            al = al+str.slice(i+1,i+4)
+            i+=3
+          }
+          else if(str[i+1]=="u"){
+            al = al+str.slice(i+1,i+6)
+            i+=5
+          }
+          else{            
+            al = al+str[i+1]
+            i+=1 
+          }
+        }
         if(al=="a"){
           al=arra[Math.floor(Math.random()*53)]
           if (dbvowel.checked) {
@@ -154,7 +168,7 @@ if (enXA.checked) {
           al=arrb[Math.floor(Math.random()*16)]
         }
         if(al=="B"){
-          al=arrbb[Math.floor(Math.random()*2)]
+          al=arrbb[Math.floor(Math.random()*arrbb.length)]
         }
         if(al=="c"){
           al=arrc[Math.floor(Math.random()*16)]
