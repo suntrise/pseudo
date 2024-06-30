@@ -40,24 +40,24 @@
   </td>
   </tr>
   </table>
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="psbtn" style="height: 50px;font-size: 20px;" onclick="psloca()"></button>  
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="psbtn" style="height: 50px;font-size: 20px;" onclick="pseudoLocalize()"></button>  
   &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " id="hisbtn" style="height:50px;font-size: 20px;" onclick="pshis.style.display='block'"></button>
   &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " style="height: 50px;font-size: 20px;" onclick="pslib.style.display='block'" id="chrbtn"></button>
 <br>
 <div id="options">
 <h4><span id="opttxt"></span>
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="enXA">
-        <input type="radio" id="enXA" class="mdl-radio__button" name="enxab" checked>
+        <input type="radio" id="enXA" class="mdl-radio__button" name="enxab" onchange="xabcheck()" checked>
         <span class="mdl-radio__label" style="font-size: 18px;">en-XA（abc→ǎƀĉ）</span>
       </label>
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="enXB">
-        <input type="radio" id="enXB" class="mdl-radio__button" name="enxab">
+        <input type="radio" id="enXB" class="mdl-radio__button" name="enxab" onchange="xabcheck()">
         <span class="mdl-radio__label" style="font-size: 18px;">en-XB（abc→cba）</span>
       </label>
 </h4>
 <div id="xaoptions">
 <b id="prstxt"></b>
-<select name="presufs" id="suffix" style="height:30px;font-size:20px">
+<select name="presufs" id="suffix" style="height:30px;font-size:20px" onchange="sufcheck()">
 <option id="prs0" value="0"></option>
 <option id="prs1" value="1"></option>
 <option id="prs2" value="2"></option> 
@@ -135,6 +135,7 @@
 </div>
 </body>
 <link rel="stylesheet" type="text/css" href="pslo.css">    
+<script type="application/json" src="character.json"></script>
 <script type="text/javascript" src="settings.js"></script>
 <script type="text/javascript" src="pslo.js"></script>
 <script type="text/javascript">
