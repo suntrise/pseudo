@@ -1,5 +1,15 @@
 var lang = 0;
-var ver = "v6.1h"
+var ver = "v6.2h"
+fetch('character.json')    
+.then(response => response.json())
+.then(jsonData => {charLib = jsonData;
+  let keys = Object.keys(charLib);
+  for(i=0; i < keys.length; ++i){
+    if(keys[i].length == 1 && /[A-Za-z]/.test(keys[i])){
+      pslibs.innerHTML += keys[i] +": " +charLib[keys[i]] +"<br>";
+    }
+  }
+})
 //默认语言设置
 check()
 function check(){
@@ -11,6 +21,39 @@ function check(){
   }
 }
 
+function xabcheck() {
+  if(enXA.checked) {
+      psshow.style.textAlign="left"
+      psshow.placeholder=resph;
+      psshow.innerHTML="";
+    }
+  else if(enXB.checked){
+    psshow.style.textAlign="right";
+    psshow.placeholder=resph.split('').reverse().join("");
+    psshow.innerHTML="";
+  }
+  if(front.checked){
+    hashdiv.style.display="block";
+  }
+  else if(front.checked == ""){
+    hashdiv.style.display="none";
+  }
+  }
+
+function sufcheck(){
+  if(suffix.value == "4"){
+    prscus.style.display="block";
+    console.log(suffix.value)
+  }
+  else if(suffix.value != "4"){
+    prscus.style.display="none";
+    console.log(suffix.value)
+  }
+  if (Math.floor(cusexpn.value)!=cusexpn.value) {
+    cusexpn.value=""
+  }
+}
+
 function setzh() {
   zh.style.color = "#fff";
   zh.style.background = "#07d";
@@ -18,7 +61,7 @@ function setzh() {
   en.style.color = "#000";
   en.style.background = "#f5f5f5";
   en.innerHTML = "英文"
-  resph="结果会显示在这里~"
+  resph ="结果会显示在这里~"
   title.innerHTML = "伪本地化演示"
   title1.innerHTML = "伪本地化演示 "+ver +" By STR"
   bkhome.style.display = "block";
@@ -53,6 +96,7 @@ function setzh() {
   该网页演示了伪本地化的一部分，即用不同的字符替换英文字母和添加分隔符。
   更多功能将在之后更新，感谢大家的支持！`
   logtxt.innerHTML = `更新日志
+  <h4>v6.2h</h4>优化代码逻辑
   <h4>v6.1h</h4>新增保留转义字符功能
   <h4>v6.0h</h4>修改界面为 MDL 样式
   <h4>v5.7h</h4>修改微软式伪本地化规则
@@ -60,6 +104,7 @@ function setzh() {
   <h4>v2.2h</h4>新增安卓式伪本地化
   <h4>v5.5h</h4><ol><li>新增在语段后重复数字的伪本地化（如[test 123]）；</li>
   <li>新增可自定义前后缀和语段后重复字段的伪本地化；</li><li>伪 Hash ID（资源标识符）支持自定义位数（3-10位）；</li><li>新增重复书写元音且能自定义重复次数；</li><li>新增将数字1-9翻译为①-⑨；</li><li>新增历史记录；</li></ol>`
+  xabcheck()
 }
 function seten() {
   zh.style.color = "#000";
@@ -98,4 +143,5 @@ function seten() {
   clear.innerHTML = "Clear"
   whattxt.innerHTML = "Pseudolocalization (or qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB) is a way to simulate the localization process. By doing so, the localization team will be able to effectively investigate issues that might occur during localization process (incorrect display of characters due to string length, etc.)<br>During pseudo-localization, English letters are replaced with accents and characters from other scripts. (For example, the letter a is replaced by any one of αäáàāāǎǎăăåå selected at random. ), separators etc. are also added to increase the string length.<br>For Example：“Windows Photo Gallery” → “ [1iaT9][ Ẅĭпðøωś Þнôтŏ Ģάŀļєяÿ !!! !] ”<br>More information: <a href='https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization' target='_blank'>https://docs.microsoft.com/en-us/globalization/methodology/pseudolocalization</a><br><br>More features are on the way. Thanks for your support!"
   logtxt.innerHTML = "";
+  xabcheck()
 }
