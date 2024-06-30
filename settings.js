@@ -43,11 +43,9 @@ function xabcheck() {
 function sufcheck(){
   if(suffix.value == "4"){
     prscus.style.display="block";
-    console.log(suffix.value)
   }
   else if(suffix.value != "4"){
     prscus.style.display="none";
-    console.log(suffix.value)
   }
   if (Math.floor(cusexpn.value)!=cusexpn.value) {
     cusexpn.value=""
