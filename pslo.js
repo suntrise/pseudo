@@ -97,7 +97,6 @@ function suffixMS() {
         } 
     result = "["+ result +" " +suf +"]";  
     n=0;
-    console.log(suf)
     suf="";
     return result;
 }
@@ -111,7 +110,6 @@ function suffixA(){
         } 
     result = "["+ result +" " +suf +"]";  
     n=0;
-    console.log(suf)
     suf="";
     return result;
 }
