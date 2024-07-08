@@ -15,9 +15,9 @@
 </a>
 </div>
 <div id="pslo_page" style="margin-left: 10%;">
-<h3 id="title1"></h3>
-<button onclick="notice.style.display='block'" id="what" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="height: 50px;font-size: 20px;"></button>
-<button onclick="updlog.style.display='block'" id="uplog" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="height: 50px;font-size: 20px;"></button>
+<h3 id="pageTitle"></h3>
+<button onclick="notice.style.display='block'" id="what" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="text-transform: none;height: 50px;font-size: 20px;"></button>
+<button onclick="updlog.style.display='block'" id="uplog" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="text-transform: none;height: 50px;font-size: 20px;"></button>
 &nbsp<a href="https://github.com/suntrise/pseudo" target="_blank" id="pjhome"></a>
 &nbsp<a href="https://github.com/suntrise/Pseudo-localization-Demo" target="_blank" id="exever"></a>  
 &nbsp<button id="zh" onclick="setzh();"></button>
@@ -41,9 +41,10 @@
   </tr>
   </table>
   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="psbtn" style="height: 50px;font-size: 20px;" onclick="pseudoLocalize()"></button>  
-  &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " id="hisbtn" style="height:50px;font-size: 20px;" onclick="pshis.style.display='block'"></button>
-  &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " style="height: 50px;font-size: 20px;" onclick="pslib.style.display='block'" id="chrbtn"></button>
+  &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " id="hisbtn" style="text-transform: none;height:50px;font-size: 20px;" onclick="pshis.style.display='block'"></button>
+  &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " style="text-transform: none;height: 50px;font-size: 20px;" onclick="pslib.style.display='block'" id="chrbtn"></button>
 <br>
+
 <div id="options">
 <h4><span id="opttxt"></span>
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="enXA">
@@ -55,6 +56,7 @@
         <span class="mdl-radio__label" style="font-size: 18px;">en-XB（abc→cba）</span>
       </label>
 </h4>
+
 <div id="xaoptions">
 <b id="prstxt"></b>
 <select name="presufs" id="suffix" style="height:30px;font-size:20px" onchange="sufcheck()">
@@ -68,15 +70,16 @@
 <span id="cuspt"></span><input type="text" name="" id="cuspre" style="width:50px;font-size:20px" value="[">
 <span id="cusst"></span><input type="text" name="" id="cussuf" style="width:50px;font-size:20px" value="]">
 <br>
-<span id="cuset"></span><input type="text" name="" id="cusexp" style="width:100px;font-size:20px"> <span id="cusnt"></span><input type="text" name="" id="cusexpn" style="width:40px;font-size:20px" value="7">
+<span id="cuset"></span><input type="text" name="" id="cusexp" style="width:100px;font-size:20px"> <span id="cusnt"></span><input type="number" min="0" id="cusexpn" style="width:40px;font-size:20px" value="7">
 </div>
 <br>
 <input type="checkbox" name="other" id="esccha" style="display: none;">
-<input type="checkbox" name="frontt" id="front" class="">
-<span class="mdl-checkbox__label" id="hashtxt" style="font-size: 20px;"></span>
+<input type="checkbox" name="frontName" id="front" class="" onclick="frontChk()">
+<span class="" id="hashtxt" style="font-size: 20px;"></span>
 <br>
 <div id="hashdiv" style="display:none">
-<span id="hashdit"></span><select name="hash" id="hashids" style="height:30px;font-size:20px">
+<span id="hashdit"></span>
+<select name="hash" id="hashids" style="height:30px;font-size:20px">
 <option value="3">3</option>
 <option value="4">4</option>
 <option value="5" selected>5</option> 
@@ -88,7 +91,7 @@
 </select>
 </div>
 <input type="checkbox" name="vowel" id="dbvowel" class="">
-<span class="mdl-checkbox__label" id="dbvtxt" style="font-size: 20px;"></span>
+<span class="" id="dbvtxt" style="font-size: 20px;"></span>
 <select id="vowelnum" style="height:30px;font-size:20px">
 <option value="1" id="dbv1" selected>1</option>
 <option value="2">2</option>
@@ -102,10 +105,10 @@
 </select>
 <br>
 <input type="checkbox" name="nums" id="numcir" class="">
-<span class="mdl-checkbox__label" id="nctxt" style="font-size: 20px;"></span>
+<span class="" id="nctxt" style="font-size: 20px;"></span>
 <br>
 <input type="checkbox" name="nums" id="keepEsc" class="">
-<span class="mdl-checkbox__label" id="esctxt" style="font-size: 20px;"></span>
+<span class="" id="esctxt" style="font-size: 20px;"></span>
 </div>
 </div>
 <div style="position:fixed;bottom: 1%;right: 1%;font-size: 15px;">由 <a href="https://getmdl.io/index.html">Material Design Lite</a> 提供界面支持
