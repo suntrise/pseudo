@@ -1,5 +1,5 @@
 {
-  "ver": "v6.2h",
+  "ver": "v6.3h",
   "author": "STR",
   "zh-CN":{
     "langZh": "中文",
@@ -18,6 +18,10 @@
     "hisbtn": "历史记录",
     "chrbtn": "字符库",
     "opttxt": "选项：",
+    "uplowtxt": "大小写转换：",
+    "deftxt": "保持原样",
+    "uptxt": "全大写",
+    "lowtxt": "全小写",
     "prstxt": "前后缀：",
     "prs0": "不添加前后缀",
     "prs1": "[中括号+感叹号括起来（微软式伪本地化） !!!]",
@@ -34,7 +38,7 @@
     "esctxt": "保留转义字符（如 \\n）。",
     "clear": "清空",
     "whattxt": "伪本地化（pseudo-localization，语言环境名称为 qps-ploc, qps-plocm, qps-ploca, en-XA, en-XB），是通过模拟本地化过程，以有效地调查在本地化中出现的问题（如字符无法正常显示，或因字符串过长而导致语段显示不完整等）。<br>在伪本地化过程中，英文字母会被替换为来自其他语言的重音符号和字符。（例如，字母 a 可以被 αäáàāāǎǎăăåå 中的任何一个替换。），还会添加分隔符等以增加字符串长度。<br>举例：“Windows Photo Gallery（Windows 照片库）”→“ [1iaT9][ Ẅĭпðøωś Þнôтŏ Ģάŀļєяÿ !!! !] ”<br>更多信息：<a href='https://docs.microsoft.com/zh-cn/globalization/methodology/pseudolocalization')' target='_blank'>https://docs.microsoft.com/zh-cn/globalization/methodology/pseudolocalization</a><br><a href='https://zhuanlan.zhihu.com/p/613293858' target='_blank'>https://zhuanlan.zhihu.com/p/613293858</a><br><br>该网页演示了伪本地化的一部分，即用不同的字符替换英文字母和添加分隔符。<br>更多功能将在之后更新，感谢大家的支持！",
-    "logtxt": "更新日志<h4>v6.2h</h4>优化代码逻辑<h4>v6.1h</h4>新增保留转义字符功能<h4>v6.0h</h4>修改界面为 MDL 样式<h4>v5.7h</h4>修改微软式伪本地化规则<h4>v5.6h</h4>新增字符库<h4>v2.2h</h4>新增安卓式伪本地化<h4>v5.5h</h4><ol><li>新增在语段后重复数字的伪本地化（如[test 123]）；</li><li>新增可自定义前后缀和语段后重复字段的伪本地化；</li><li>伪 Hash ID（资源标识符）支持自定义位数（3-10位）；</li><li>新增重复书写元音且能自定义重复次数；</li><li>新增将数字1-9翻译为①-⑨；</li><li>新增历史记录；</li></ol>"
+    "logtxt": "更新日志<h4>v6.3h</h4>新增大小写转换<h4>v6.2h</h4>优化代码逻辑<h4>v6.1h</h4>新增保留转义字符功能<h4>v6.0h</h4>修改界面为 MDL 样式<h4>v5.7h</h4>修改微软式伪本地化规则<h4>v5.6h</h4>新增字符库<h4>v2.2h</h4>新增安卓式伪本地化<h4>v5.5h</h4><ol><li>新增在语段后重复数字的伪本地化（如[test 123]）；</li><li>新增可自定义前后缀和语段后重复字段的伪本地化；</li><li>伪 Hash ID（资源标识符）支持自定义位数（3-10位）；</li><li>新增重复书写元音且能自定义重复次数；</li><li>新增将数字1-9翻译为①-⑨；</li><li>新增历史记录；</li></ol>"
   },
   "en":{
   "langZh": "Chinese",
@@ -52,6 +56,10 @@
   "hisbtn": "History",
   "chrbtn": "Character library",
   "opttxt": "Options: ",
+  "uplowtxt": "Case Conversion: ",
+  "deftxt": "Keep default",
+  "uptxt": "All uppercase",
+  "lowtxt": "All lowercase",
   "prstxt": "Prefix and suffix:",
   "prs0": "Do not add prefix or suffix",
   "prs1": "[Brackets + exclamation marks after the result (Microsoft style) !!!]",
