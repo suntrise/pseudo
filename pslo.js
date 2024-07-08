@@ -9,10 +9,16 @@ fetch('character.json')
 
 //主函数
 function pseudoLocalize() {
-  origin = pstype.value;
-  result = "";
-  oriLength = origin.length;
+  let origin = pstype.value;
+  let result = "";
+  let oriLength = origin.length
   if (origin!="") {
+  if(upper.checked){
+    origin = origin.toUpperCase()
+  } 
+  else if(lower.checked){
+    origin = origin.toLowerCase()
+  } 
   if (enXA.checked) {
     for (let i = 0; i < origin.length; ++i){
         if(origin[i]=="\\" && keepEsc.checked == true){
@@ -56,10 +62,10 @@ function pseudoLocalize() {
           result = result.replace(/1/g, "①").replace(/2/g, "②").replace(/3/g, "③").replace(/4/g, "④").replace(/5/g, "⑤").replace(/6/g, "⑥").replace(/7/g, "⑦").replace(/8/g, "⑧").replace(/9/g, "⑨");
           } 
     //添加前后缀
-    addSuffix();
+    result = addSuffix(result, oriLength);
     //添加伪 Hash ID
     if (front.checked) {
-      addHashID()
+      result = addHashID(result)
     }
     console.log(result)
     psshow.innerHTML = result;
@@ -69,28 +75,29 @@ function pseudoLocalize() {
 }      
 
 //判断前后缀方式
-function addSuffix(result){ 
+function addSuffix(result, oriLength){ 
   switch (suffix.value) {
     case "1":
-          suffixMS();
+          result = suffixMS(result, oriLength);
           break
     case "2":
-          suffixA();
+          result = suffixA(result, oriLength);
           break
     case "3":
-          suffixNum();
+          result = suffixNum(result, oriLength);
           break
     case "4":
-          suffixCus();
+          result = suffixCus(result, oriLength);
           break
         }   
+    return result;
 }
 //微软式后缀
-function suffixMS() {
+function suffixMS(result,oriLength) {
   let n = 0, suf = "";
-   while(oriLength>2 && n<(oriLength/7)){
-        n++
-        suf=suf+"!"  
+   while(oriLength > 2 && n<(oriLength/7)){
+        n++;
+        suf=suf+"!";
         if (n%3==0 && n!=(Math.floor(oriLength/7)+1)) {
           suf=suf+" ";
         } 
@@ -102,7 +109,7 @@ function suffixMS() {
 }
 
 //安卓式后缀
-function suffixA(){
+function suffixA(result,oriLength){
   let n = 0, suf = "";
    while(n<(oriLength/7)){
         n++
@@ -115,7 +122,7 @@ function suffixA(){
 }
 
 //数字式后缀
-function suffixNum() {
+function suffixNum(result,oriLength) {
     let n = 0, suf = "";
     while(n<(oriLength/7)){
         n++
@@ -124,10 +131,11 @@ function suffixNum() {
     result = "["+ result +" " +suf +"]";  
     n=0;
     suf="";
+    return result;
 }
 
 //自定义后缀
-function suffixCus() {
+function suffixCus(result,oriLength) {
     let n = 0, suf = "";
     while(n<=(oriLength/cusexpn.value)){
         n++
@@ -141,12 +149,13 @@ function suffixCus() {
         }
     n=0;
     suf="";
+    return result;
 }
 
 //添加伪 Hash ID
-function addHashID(){
+function addHashID(result){
     let m = 0, hashid = "";
-        while(m<hashids.value){
+        while(m < hashids.value){
           m++
           hashid = hashid + charLib["alphabet"][Math.floor(Math.random()*62)]
         }
