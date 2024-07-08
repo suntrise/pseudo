@@ -28,12 +28,14 @@ function xabcheck() {
       psshow.placeholder = resph; 
       psshow.style.textAlign="left";
       psshow.innerHTML="";
+      //xaoptions.style.display = "block";
       RTL = false
     }
   else if(enXB.checked){
     psshow.placeholder = resph.split('').reverse().join(''); 
     psshow.style.textAlign="right";
     psshow.innerHTML="";
+    //xaoptions.style.display = "none";
     RTL = true;
   }
 }
@@ -98,6 +100,10 @@ function setLang(lang) {
   hisbtn.innerHTML = lang["hisbtn"]
   chrbtn.innerHTML = lang["chrbtn"]
   opttxt.innerHTML = lang["opttxt"]
+  uplowtxt.innerHTML = lang["uplowtxt"]
+  deftxt.innerHTML = lang["deftxt"]
+  uptxt.innerHTML = lang["uptxt"]
+  lowtxt.innerHTML = lang["lowtxt"]
   prstxt.innerHTML = lang["prstxt"]
   prs0.innerHTML = lang["prs0"]
   prs1.innerHTML = lang["prs1"]
