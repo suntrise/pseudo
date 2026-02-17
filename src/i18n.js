@@ -13,6 +13,7 @@ export async function loadI18n() {
 
 export function setLang(lang) {
   state.currentLang = lang;
+  localStorage.setItem("pseudo-lang", lang);
   applyLanguage();
 }
 
@@ -86,5 +87,9 @@ export function applyLanguage() {
 }
 
 export function getSavedLang() {
+  const savedLang = localStorage.getItem("pseudo-lang");
+  if (savedLang && (savedLang === "en" || savedLang === "zh")) {
+    return savedLang;
+  }
   return navigator.language?.startsWith("zh") ? "zh" : "en";
 }
