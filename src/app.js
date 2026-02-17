@@ -1,10 +1,11 @@
-import { state } from "./state.js";
+import { state, loadHistory } from "./state.js";
 import { loadI18n, applyLanguage, getSavedLang } from "./i18n.js";
 import { initEvents, updateOptionVisibility } from "./events.js";
 
 async function initializeApp() {
   await loadI18n();
   state.currentLang = getSavedLang();
+  loadHistory();
 
   await new Promise(r => setTimeout(r, 100));
 

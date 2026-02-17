@@ -1,5 +1,5 @@
 import { processText } from "./processor.js";
-import { state, getState } from "./state.js";
+import { state, getState, saveHistory, loadHistory, clearHistoryStorage } from "./state.js";
 import { setLang, t, applyLanguage } from "./i18n.js";
 import { $, escapeHtml, showToast, showModal, hideModal } from "./dom.js";
 
@@ -87,6 +87,7 @@ export function initEvents() {
           input: text,
           output: result
         });
+        saveHistory(state.processingHistory);
       }
     } catch (e) {
       $("output-text").value = "Error: " + e.message;
@@ -127,6 +128,7 @@ export function initEvents() {
 
   $("clear-history-btn")?.addEventListener("click", () => {
     state.processingHistory = [];
+    clearHistoryStorage();
     $("history-content").innerHTML = `<p>${t().historyCleared}</p>`;
   });
 
