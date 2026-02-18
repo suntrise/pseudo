@@ -4,7 +4,8 @@ export const state = {
   currentLang: "en",
   currentMode: "XA",
   processingHistory: [],
-  charLib: null
+  charLib: null,
+  supportedLanguages: []
 };
 
 export function getState() {

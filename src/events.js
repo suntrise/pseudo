@@ -182,7 +182,7 @@ export function initEvents() {
 
   $("lang-btn-mobile")?.addEventListener("click", () => {
     $("mobile-menu")?.classList.remove("show");
-    setLang(state.currentLang === "zh" ? "en" : "zh");
+    showModal("lang-modal");
   });
 
   $("github-btn-mobile")?.addEventListener("click", () => {
@@ -199,7 +199,32 @@ export function initEvents() {
     window.open("https://github.com/suntrise/Pseudo-localization-Demo", "_blank");
   });
 
-  $("lang-btn")?.addEventListener("click", () => setLang(state.currentLang === "zh" ? "en" : "zh"));
+  $("lang-btn")?.addEventListener("click", () => showModal("lang-modal"));
+
+  $("lang-list")?.addEventListener("click", (e) => {
+    const langOption = e.target.closest(".lang-option");
+    if (langOption) {
+      const selectedLang = langOption.dataset.lang;
+      if (selectedLang && selectedLang !== state.currentLang) {
+        setLang(selectedLang);
+        hideModal("lang-modal");
+      }
+    }
+  });
+
+  $("lang-list")?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      const langOption = e.target.closest(".lang-option");
+      if (langOption) {
+        e.preventDefault();
+        const selectedLang = langOption.dataset.lang;
+        if (selectedLang && selectedLang !== state.currentLang) {
+          setLang(selectedLang);
+          hideModal("lang-modal");
+        }
+      }
+    }
+  });
 
   const modalEvents = [
     ["close-history-btn", "history-modal"],
@@ -207,7 +232,9 @@ export function initEvents() {
     ["close-library-btn", "library-modal"],
     ["library-backdrop", "library-modal"],
     ["close-about-btn", "about-modal"],
-    ["about-backdrop", "about-modal"]
+    ["about-backdrop", "about-modal"],
+    ["close-lang-btn", "lang-modal"],
+    ["lang-backdrop", "lang-modal"]
   ];
   modalEvents.forEach(([btnId, modalId]) => {
     $(btnId)?.addEventListener("click", () => hideModal(modalId));

@@ -472,6 +472,57 @@ md-text-button .material-icons {
   margin-top: 16px;
 }
 
+.lang-modal-panel {
+  max-width: 360px;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.15s;
+  margin-bottom: 4px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.lang-option:focus {
+  outline: 2px solid #6750A4;
+  outline-offset: 2px;
+}
+
+.lang-option:hover {
+  background: rgba(103, 80, 164, 0.08);
+}
+
+.lang-option.active {
+  background: rgba(103, 80, 164, 0.12);
+}
+
+.lang-native {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1C1B1F;
+  flex: 1;
+}
+
+.lang-name {
+  font-size: 0.85rem;
+  color: #49454F;
+  margin-left: 8px;
+}
+
+.lang-check {
+  color: #6750A4;
+  font-size: 20px;
+}
+
 @media (max-width: 768px) {
   .topbar-actions {
     display: none;
@@ -643,5 +694,29 @@ md-text-button .material-icons {
     --md-switch-selected-hover-track-color: #7F67BA;
     --md-switch-unselected-hover-thumb-color: #605C66;
     --md-switch-unselected-hover-track-color: #605C66;
+  }
+
+  .lang-option:hover {
+    background: rgba(208, 188, 255, 0.08);
+  }
+
+  .lang-option:focus {
+    outline-color: #D0BCFF;
+  }
+
+  .lang-option.active {
+    background: rgba(208, 188, 255, 0.12);
+  }
+
+  .lang-native {
+    color: #E6E0E9;
+  }
+
+  .lang-name {
+    color: #938F99;
+  }
+
+  .lang-check {
+    color: #D0BCFF;
   }
 }
