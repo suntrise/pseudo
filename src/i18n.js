@@ -32,14 +32,6 @@ export function applyLanguage() {
 
   const bindings = {
     "app-title": titleWithVersion,
-    "exe-btn": txt.exeVersion,
-    "exe-btn-mobile": txt.exeVersion,
-    "library-btn-top": txt.library,
-    "library-btn-mobile": txt.library,
-    "about-btn": txt.about,
-    "about-btn-mobile": txt.about,
-    "lang-btn": state.currentLang === "zh" ? txt.langEn : txt.langZh,
-    "lang-btn-mobile": state.currentLang === "zh" ? txt.langEn : txt.langZh,
     "label-mode-xa": txt.modeXA,
     "label-mode-xb": txt.modeXB,
     "label-suffix": txt.suffix,
@@ -62,7 +54,6 @@ export function applyLanguage() {
     "label-preserve-esc": txt.preserveEsc,
     "history-title-text": txt.historyTitle,
     "library-title-text": txt.library,
-    "clear-history-btn": txt.historyClear,
     "about-title-text": txt.aboutTitle
   };
 
@@ -76,11 +67,27 @@ export function applyLanguage() {
   if (inputText) inputText.setAttribute("label", txt.inputPlaceholder);
   if (outputText) outputText.setAttribute("label", txt.outputPlaceholder);
 
-  const buttons = ["process-btn", "clear-btn", "copy-btn", "history-btn", "library-btn"];
-  const btnKeys = [txt.process, txt.clear, txt.copy, txt.history, txt.library];
-  buttons.forEach((id, i) => {
+  const buttons = [
+    { id: "process-btn", text: txt.process, icon: "translate" },
+    { id: "clear-btn", text: txt.clear, icon: "clear" },
+    { id: "copy-btn", text: txt.copy, icon: "content_copy" },
+    { id: "history-btn", text: txt.history, icon: "history" },
+    { id: "library-btn-top", text: txt.library, icon: "library_books" },
+    { id: "library-btn-mobile", text: txt.library, icon: "library_books" },
+    { id: "about-btn", text: txt.about, icon: "info" },
+    { id: "about-btn-mobile", text: txt.about, icon: "info" },
+    { id: "exe-btn", text: txt.exeVersion, icon: "code" },
+    { id: "exe-btn-mobile", text: txt.exeVersion, icon: "code" },
+    { id: "lang-btn", text: state.currentLang === "zh" ? txt.langEn : txt.langZh, icon: "language" },
+    { id: "lang-btn-mobile", text: state.currentLang === "zh" ? txt.langEn : txt.langZh, icon: "language" },
+    { id: "clear-history-btn", text: txt.historyClear, icon: "delete_sweep" },
+    { id: "github-btn-mobile", text: "GitHub", icon: "open_in_new" }
+  ];
+  buttons.forEach(({ id, text, icon }) => {
     const btn = $(id);
-    if (btn) btn.textContent = btnKeys[i];
+    if (btn) {
+      btn.innerHTML = `<span class="material-icons">${icon}</span>${text}`;
+    }
   });
 
   $("about-content").innerHTML = txt.aboutContent;

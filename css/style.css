@@ -50,6 +50,20 @@ a:hover {
   --md-text-button-container-shape: 20px;
 }
 
+md-filled-button,
+md-outlined-button,
+md-text-button {
+  --md-icon-font-icon-size: 18px;
+}
+
+md-filled-button .material-icons,
+md-outlined-button .material-icons,
+md-text-button .material-icons {
+  font-size: 18px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
 .menu-btn {
   display: none;
   background: none;
@@ -352,6 +366,13 @@ a:hover {
   padding: 4px 8px;
   border-radius: 4px;
   transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close .material-icons {
+  font-size: 20px;
 }
 
 .modal-close:hover {

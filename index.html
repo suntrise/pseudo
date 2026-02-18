@@ -166,7 +166,7 @@
         <div class="modal-panel">
             <div class="modal-header">
                 <span id="history-title-text">History</span>
-                <button class="modal-close" id="close-history-btn">&times;</button>
+                <button class="modal-close" id="close-history-btn"><span class="material-icons">close</span></button>
             </div>
             <div class="modal-content" id="history-content">
                 <p>No processing history yet.</p>
@@ -182,7 +182,7 @@
         <div class="modal-panel">
             <div class="modal-header">
                 <span id="library-title-text">Character Library</span>
-                <button class="modal-close" id="close-library-btn">&times;</button>
+                <button class="modal-close" id="close-library-btn"><span class="material-icons">close</span></button>
             </div>
             <div class="modal-content" id="library-content">
                 <p>Loading...</p>
@@ -195,7 +195,7 @@
         <div class="modal-panel">
             <div class="modal-header">
                 <span id="about-title-text">About</span>
-                <button class="modal-close" id="close-about-btn">&times;</button>
+                <button class="modal-close" id="close-about-btn"><span class="material-icons">close</span></button>
             </div>
             <div class="modal-content" id="about-content"></div>
         </div>
@@ -204,11 +204,6 @@
     <div id="toast" class="toast"></div>
 
     <script type="module" src="src/app.js"></script>
-    <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register(window.BASE_PATH + "sw.js");
-        }
-    </script>
 </body>
 
 </html>
