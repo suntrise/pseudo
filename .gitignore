@@ -3,3 +3,5 @@ __MACOSX/
 .DS_Store
 desktop.ini
 Thumbs.db
+
+tests/.biome/
