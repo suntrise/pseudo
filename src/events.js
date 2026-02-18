@@ -1,5 +1,5 @@
 import { processText } from "./processor.js";
-import { state, saveHistory, clearHistoryStorage, saveMode } from "./state.js";
+import { state, saveHistory, clearHistoryStorage, saveMode, saveSession } from "./state.js";
 import { setLang, t } from "./i18n.js";
 import { $, escapeHtml, showToast, showModal, hideModal } from "./dom.js";
 
@@ -89,13 +89,14 @@ export function initEvents() {
     try {
       const result = await processText(text, options);
       $("output-text").value = result;
+      saveSession(text, result);
       if (text.trim()) {
         state.processingHistory.unshift({
-          timestamp: new Date().toLocaleString(state.currentLang === "zh" ? "zh-CN" : "en-US"),
+          timestamp: Date.now(),
           input: text,
           output: result
         });
-        saveHistory(state.processingHistory);
+        await saveHistory(state.processingHistory);
       }
     } catch (e) {
       $("output-text").value = `Error: ${e.message}`;
@@ -118,12 +119,13 @@ export function initEvents() {
   $("history-btn")?.addEventListener("click", () => {
     const content = $("history-content");
     const txt = t();
+    const locale = state.currentLang === "zh-Hans" ? "zh-CN" : state.currentLang === "zh-Hant" ? "zh-TW" : "en-US";
     if (state.processingHistory.length === 0) {
       content.innerHTML = `<p>${txt.historyEmpty}</p>`;
     } else {
       content.innerHTML = state.processingHistory.map((item, i) => `
         <div class="history-item">
-          <div class="history-timestamp">${i + 1}. ${item.timestamp}</div>
+          <div class="history-timestamp">${i + 1}. ${new Date(item.timestamp).toLocaleString(locale)}</div>
           <div class="history-text">
             <div class="history-row"><span class="history-label">${txt.historyInput}</span> <span class="history-input">${escapeHtml(item.input)}</span></div>
             <div class="history-row"><span class="history-label">${txt.historyOutput}</span> <span class="history-output">${escapeHtml(item.output)}</span></div>
