@@ -1,12 +1,12 @@
 import { processText } from "./processor.js";
-import { state, getState, saveHistory, loadHistory, clearHistoryStorage, saveMode } from "./state.js";
-import { setLang, t, applyLanguage } from "./i18n.js";
+import { state, saveHistory, clearHistoryStorage, saveMode } from "./state.js";
+import { setLang, t } from "./i18n.js";
 import { $, escapeHtml, showToast, showModal, hideModal } from "./dom.js";
 
 export async function loadCharLib() {
   if (!state.charLib) {
     const basePath = window.BASE_PATH || './';
-    state.charLib = await (await fetch(basePath + "data/character.json")).json();
+    state.charLib = await (await fetch(`${basePath}data/character.json`)).json();
   }
   return state.charLib;
 }
@@ -31,7 +31,7 @@ export function initEvents() {
       }
     });
   };
-  modeRadios.forEach(radio => radio.addEventListener('change', updateMode));
+  for (const radio of modeRadios) radio.addEventListener('change', updateMode);
   modeRadios.forEach(radio => {
     if (radio.value === state.currentMode) {
       radio.checked = true;
@@ -78,12 +78,12 @@ export function initEvents() {
       customPrefix: $("custom-prefix")?.value || "",
       customSuffix: $("custom-suffix")?.value || "",
       customRepeat: $("custom-repeat")?.value || "",
-      customRepeatCount: parseInt($("custom-repeat-count")?.value) || 7,
+      customRepeatCount: parseInt($("custom-repeat-count")?.value, 10) || 7,
       dbvowel: $("dbvowel")?.selected,
-      dbvowelCount: parseInt($("dbvowel-count")?.value) || 1,
+      dbvowelCount: parseInt($("dbvowel-count")?.value, 10) || 1,
       numcir: $("numcir")?.selected,
       addHash: $("addHash")?.selected,
-      hashLength: parseInt($("hash-length")?.value) || 6,
+      hashLength: parseInt($("hash-length")?.value, 10) || 6,
       preserveEsc: $("preserveEsc")?.selected
     };
     try {
@@ -98,7 +98,7 @@ export function initEvents() {
         saveHistory(state.processingHistory);
       }
     } catch (e) {
-      $("output-text").value = "Error: " + e.message;
+      $("output-text").value = `Error: ${e.message}`;
     }
   });
 

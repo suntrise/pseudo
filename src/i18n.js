@@ -25,7 +25,7 @@ function getLangInfo(langCode) {
     const nativeName = nativeDisplayNames.of(langCode) || nativeDisplayNames.of(baseCode) || baseCode;
     
     return { name, nativeName };
-  } catch (e) {
+  } catch (_e) {
     return LANGUAGE_NAMES_FALLBACK[baseCode] || { name: langCode, nativeName: langCode };
   }
 }
@@ -46,8 +46,8 @@ function buildSupportedLanguages(i18nData) {
 export async function loadI18n() {
   const basePath = window.BASE_PATH || './';
   const [i18nRes, metaRes] = await Promise.all([
-    fetch(basePath + "data/i18n.json"),
-    fetch(basePath + "data/metadata.json")
+    fetch(`${basePath}data/i18n.json`),
+    fetch(`${basePath}data/metadata.json`)
   ]);
   state.i18nData = await i18nRes.json();
   state.metadata = await metaRes.json();
@@ -78,14 +78,14 @@ export function setLang(lang) {
 
 export function t() {
   const fallbackLang = getLangFallback(state.currentLang);
-  return state.i18nData[fallbackLang] || state.i18nData["en"];
+  return state.i18nData[fallbackLang] || state.i18nData.en;
 }
 
 export function applyLanguage() {
   const txt = t();
   if (!txt) return;
 
-  const s = getState();
+  const _s = getState();
   const version = state.metadata.version || "";
   const titleWithVersion = version ? `${txt.title} v${version}` : txt.title;
   document.title = txt.title;

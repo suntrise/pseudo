@@ -3,7 +3,7 @@ let charLib = null;
 async function loadCharLib() {
   if (!charLib) {
     const basePath = window.BASE_PATH || './';
-    const response = await fetch(basePath + "data/character.json");
+    const response = await fetch(`${basePath}data/character.json`);
     charLib = await response.json();
   }
 }
@@ -113,7 +113,7 @@ function addSuffix(result, oriLength, mode, options) {
 
 function suffixMS(result, oriLength) {
   let suf = "";
-  let n = Math.floor(oriLength / 7);
+  const n = Math.floor(oriLength / 7);
 
   for (let i = 0; i < n; i++) {
     suf += "!";
@@ -126,10 +126,10 @@ function suffixMS(result, oriLength) {
 function suffixAndroid(result, oriLength) {
   let suf = "";
   const n = Math.floor(oriLength / 7);
-  const numbers = charLib["enNumber"] || ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
+  const numbers = charLib.enNumber || ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
 
   for (let i = 0; i < n; i++) {
-    suf += numbers[i % numbers.length] + " ";
+    suf += `${numbers[i % numbers.length]} `;
   }
 
   return `[${result} ${suf}]`;
@@ -160,15 +160,15 @@ function suffixCustom(result, oriLength, options) {
   const n = Math.floor(oriLength / repeatCount);
 
   for (let i = 0; i <= n; i++) {
-    suf += repeat + " ";
+    suf += `${repeat} `;
   }
 
-  return prefix + result + " " + suf + suffix;
+  return `${prefix + result} ${suf}${suffix}`;
 }
 
 function addHashID(result, length = 6) {
   let hash = "";
-  const alphabet = charLib["alphabet"] || "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const alphabet = charLib.alphabet || "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   for (let i = 0; i < length; i++) {
     hash += alphabet[Math.floor(Math.random() * alphabet.length)];
   }
