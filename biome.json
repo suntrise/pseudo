@@ -1,0 +1,30 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.2/schema.json",
+  "files": {
+    "includes": ["src/**/*.js"]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "useTemplate": "warn",
+        "useConst": "warn"
+      },
+      "complexity": {
+        "useLiteralKeys": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "warn",
+        "noUnusedVariables": "warn",
+        "useParseIntRadix": "warn"
+      },
+      "suspicious": {
+        "useIterableCallbackReturn": "warn"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": false
+  }
+}
