@@ -8,6 +8,10 @@ export const state = {
   supportedLanguages: []
 };
 
+export function getState() {
+  return state;
+}
+
 const HISTORY_KEY = "pseudo-history";
 const MODE_KEY = "pseudo-mode";
 const SESSION_INPUT_KEY = "pseudo-session-input";
