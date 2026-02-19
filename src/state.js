@@ -17,29 +17,14 @@ const MODE_KEY = "pseudo-mode";
 const SESSION_INPUT_KEY = "pseudo-session-input";
 const SESSION_OUTPUT_KEY = "pseudo-session-output";
 
-const hasCompression = typeof CompressionStream === "function";
-
-async function compress(data) {
-  const json = JSON.stringify(data);
-  if (!hasCompression) return json;
-  const input = new TextEncoder().encode(json);
-  const cs = new CompressionStream("gzip");
-  const writer = cs.writable.getWriter();
-  writer.write(input);
-  writer.close();
-  const buffer = await new Response(cs.readable).arrayBuffer();
-  return btoa(String.fromCharCode(...new Uint8Array(buffer)));
+function compress(data) {
+  return LZString.compressToUTF16(JSON.stringify(data));
 }
 
-async function decompress(encoded) {
+function decompress(encoded) {
   try {
-    const binary = atob(encoded);
-    const input = new Uint8Array([...binary].map(c => c.charCodeAt(0)));
-    const ds = new DecompressionStream("gzip");
-    const writer = ds.writable.getWriter();
-    writer.write(input);
-    writer.close();
-    return new Response(ds.readable).text();
+    const decoded = LZString.decompressFromUTF16(encoded);
+    return decoded ? JSON.parse(decoded) : null;
   } catch {
     return null;
   }
@@ -66,15 +51,14 @@ export function loadSession() {
   }
 }
 
-export async function saveHistory(history) {
+export function saveHistory(history) {
   try {
-    const compressed = await compress(history);
-    localStorage.setItem(HISTORY_KEY, compressed);
+    localStorage.setItem(HISTORY_KEY, compress(history));
   } catch (e) {
     if (e.name === 'QuotaExceededError') {
       localStorage.removeItem(HISTORY_KEY);
       try {
-        localStorage.setItem(HISTORY_KEY, await compress(history));
+        localStorage.setItem(HISTORY_KEY, compress(history));
       } catch {
         console.warn("LocalStorage full, skipping save");
       }
@@ -84,7 +68,7 @@ export async function saveHistory(history) {
   }
 }
 
-export async function loadHistory() {
+export function loadHistory() {
   try {
     const raw = localStorage.getItem(HISTORY_KEY);
     if (!raw) {
@@ -92,7 +76,7 @@ export async function loadHistory() {
       return;
     }
 
-    const data = await decompress(raw);
+    const data = decompress(raw);
     if (Array.isArray(data)) {
       state.processingHistory = data;
       return;
@@ -102,7 +86,7 @@ export async function loadHistory() {
       const legacyData = JSON.parse(raw);
       if (Array.isArray(legacyData)) {
         state.processingHistory = legacyData;
-        await saveHistory(legacyData);
+        saveHistory(legacyData);
         return;
       }
     } catch {
