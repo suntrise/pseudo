@@ -1,4 +1,4 @@
-import { state, getState } from "./state.js";
+import { state } from "./state.js";
 import { $ } from "./dom.js";
 
 const LANGUAGE_NAMES_FALLBACK = {
@@ -85,7 +85,6 @@ export function applyLanguage() {
   const txt = t();
   if (!txt) return;
 
-  const _s = getState();
   const version = state.metadata.version || "";
   const titleWithVersion = version ? `${txt.title} v${version}` : txt.title;
   document.title = txt.title;
