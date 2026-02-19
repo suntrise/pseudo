@@ -7,7 +7,7 @@ async function initializeApp() {
   await loadI18n();
   state.currentLang = getSavedLang();
   localStorage.setItem("pseudo-lang", state.currentLang);
-  await loadHistory();
+  loadHistory();
   loadMode();
 
   const session = loadSession();
