@@ -96,7 +96,7 @@ export function initEvents() {
           input: text,
           output: result
         });
-        saveHistory(state.processingHistory);
+        await saveHistory(state.processingHistory);
       }
     } catch (e) {
       $("output-text").value = `Error: ${e.message}`;
