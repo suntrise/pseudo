@@ -15,9 +15,11 @@ export function showToast(message) {
   }
 }
 
+const closingModal = {};
+
 export function showModal(id) {
   const modal = $(id);
-  if (modal) {
+  if (modal && !closingModal[id]) {
     modal.classList.remove("hiding");
     modal.style.display = "";
     modal.classList.add("show");
@@ -26,12 +28,21 @@ export function showModal(id) {
 
 export function hideModal(id) {
   const modal = $(id);
+  const modalPanel = modal?.querySelector(".modal-panel");
   if (modal) {
+    closingModal[id] = true;
     modal.classList.add("hiding");
     modal.classList.remove("show");
+    if (modalPanel) {
+      modalPanel.style.animation = "dialog-exit 0.2s cubic-bezier(0.2, 0, 0, 1) forwards";
+    }
     setTimeout(() => {
       modal.classList.remove("hiding");
       modal.style.display = "none";
+      if (modalPanel) {
+        modalPanel.style.animation = "";
+      }
+      closingModal[id] = false;
     }, 250);
   }
 }

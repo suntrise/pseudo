@@ -38,11 +38,9 @@
                     </svg>
                 </a>
             </div>
-            <button id="menu-btn" class="menu-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-                </svg>
-            </button>
+            <md-icon-button id="menu-btn" class="menu-btn">
+                <span class="material-icons">menu</span>
+            </md-icon-button>
         </div>
 
         <div id="mobile-menu" class="mobile-menu">
@@ -165,10 +163,12 @@
 
     <div id="history-modal" class="modal">
         <div class="modal-backdrop" id="history-backdrop"></div>
-        <div class="modal-panel">
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="history-title-text">
             <div class="modal-header">
-                <span id="history-title-text">History</span>
-                <button class="modal-close" id="close-history-btn"><span class="material-icons">close</span></button>
+                <span id="history-title-text" class="modal-title">History</span>
+                <button class="modal-close" id="close-history-btn" aria-label="Close">
+                    <span class="material-icons">close</span>
+                </button>
             </div>
             <div class="modal-content" id="history-content">
                 <p>No processing history yet.</p>
@@ -181,10 +181,12 @@
 
     <div id="library-modal" class="modal">
         <div class="modal-backdrop" id="library-backdrop"></div>
-        <div class="modal-panel">
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="library-title-text">
             <div class="modal-header">
-                <span id="library-title-text">Character Library</span>
-                <button class="modal-close" id="close-library-btn"><span class="material-icons">close</span></button>
+                <span id="library-title-text" class="modal-title">Character Library</span>
+                <button class="modal-close" id="close-library-btn" aria-label="Close">
+                    <span class="material-icons">close</span>
+                </button>
             </div>
             <div class="modal-content" id="library-content">
                 <p>Loading...</p>
@@ -194,10 +196,12 @@
 
     <div id="about-modal" class="modal">
         <div class="modal-backdrop" id="about-backdrop"></div>
-        <div class="modal-panel">
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="about-title-text">
             <div class="modal-header">
-                <span id="about-title-text">About</span>
-                <button class="modal-close" id="close-about-btn"><span class="material-icons">close</span></button>
+                <span id="about-title-text" class="modal-title">About</span>
+                <button class="modal-close" id="close-about-btn" aria-label="Close">
+                    <span class="material-icons">close</span>
+                </button>
             </div>
             <div class="modal-content" id="about-content"></div>
         </div>
@@ -205,10 +209,12 @@
 
     <div id="lang-modal" class="modal">
         <div class="modal-backdrop" id="lang-backdrop"></div>
-        <div class="modal-panel lang-modal-panel">
+        <div class="modal-panel lang-modal-panel" role="dialog" aria-modal="true" aria-labelledby="lang-modal-title">
             <div class="modal-header">
-                <span id="lang-modal-title">Language</span>
-                <button class="modal-close" id="close-lang-btn"><span class="material-icons">close</span></button>
+                <span id="lang-modal-title" class="modal-title">Language</span>
+                <button class="modal-close" id="close-lang-btn" aria-label="Close">
+                    <span class="material-icons">close</span>
+                </button>
             </div>
             <div class="modal-content" id="lang-list"></div>
         </div>

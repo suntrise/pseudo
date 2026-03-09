@@ -12,6 +12,16 @@ export function getState() {
   return state;
 }
 
+export async function loadCharLib() {
+  if (state.charLib) {
+    return state.charLib;
+  }
+  const basePath = window.BASE_PATH || './';
+  const response = await fetch(`${basePath}data/character.json`);
+  state.charLib = await response.json();
+  return state.charLib;
+}
+
 const HISTORY_KEY = "pseudo-history";
 const MODE_KEY = "pseudo-mode";
 const SESSION_INPUT_KEY = "pseudo-session-input";

@@ -1,15 +1,7 @@
-let charLib = null;
-
-async function loadCharLib() {
-  if (!charLib) {
-    const basePath = window.BASE_PATH || './';
-    const response = await fetch(`${basePath}data/character.json`);
-    charLib = await response.json();
-  }
-}
+import { loadCharLib } from "./state.js";
 
 export async function processText(text, options = {}) {
-  await loadCharLib();
+  const charLib = await loadCharLib();
 
   if (!text) return "";
 
@@ -83,25 +75,25 @@ export async function processText(text, options = {}) {
 
   // Add suffix
   const suffixMode = options.suffix || "0";
-  result = addSuffix(result, oriLength, suffixMode, options);
+  result = addSuffix(result, oriLength, suffixMode, options, charLib);
 
   // Add hash ID
   if (options.addHash) {
     const hashLength = options.hashLength || 6;
-    result = addHashID(result, hashLength);
+    result = addHashID(result, hashLength, charLib);
   }
 
   return result;
 }
 
-function addSuffix(result, oriLength, mode, options) {
+function addSuffix(result, oriLength, mode, options, charLib) {
   switch (mode) {
     case "0": // None
       return result;
     case "1": // Microsoft style
       return suffixMS(result, oriLength);
     case "2": // Android style
-      return suffixAndroid(result, oriLength);
+      return suffixAndroid(result, oriLength, charLib);
     case "3": // Numeric
       return suffixNum(result, oriLength);
     case "4": // Custom
@@ -123,7 +115,7 @@ function suffixMS(result, oriLength) {
   return `[${result} ${suf}]`;
 }
 
-function suffixAndroid(result, oriLength) {
+function suffixAndroid(result, oriLength, charLib) {
   let suf = "";
   const n = Math.floor(oriLength / 7);
   const numbers = charLib.enNumber || ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
@@ -166,7 +158,7 @@ function suffixCustom(result, oriLength, options) {
   return `${prefix + result} ${suf}${suffix}`;
 }
 
-function addHashID(result, length = 6) {
+function addHashID(result, length = 6, charLib) {
   let hash = "";
   const alphabet = charLib.alphabet || "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   for (let i = 0; i < length; i++) {

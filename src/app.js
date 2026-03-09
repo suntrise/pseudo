@@ -1,7 +1,7 @@
-import { state, loadHistory, loadMode, loadSession } from "./state.js";
-import { loadI18n, applyLanguage, getSavedLang } from "./i18n.js";
-import { initEvents, updateOptionVisibility } from "./events.js";
 import { $ } from "./dom.js";
+import { initEvents, updateOptionVisibility } from "./events.js";
+import { applyLanguage, getSavedLang, loadI18n } from "./i18n.js";
+import { loadHistory, loadMode, loadSession, state } from "./state.js";
 
 async function initializeApp() {
   await loadI18n();
@@ -19,6 +19,19 @@ async function initializeApp() {
   applyLanguage();
   initEvents();
   updateOptionVisibility();
+  
+  const topbar = $("app-title")?.closest(".topbar");
+  if (topbar) {
+    const updateTopbarShadow = () => {
+      if (window.scrollY > 0) {
+        topbar.classList.add("scrolled");
+      } else {
+        topbar.classList.remove("scrolled");
+      }
+    };
+    window.addEventListener("scroll", updateTopbarShadow, { passive: true });
+    updateTopbarShadow();
+  }
 }
 
 initializeApp();
