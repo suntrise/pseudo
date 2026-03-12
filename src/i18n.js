@@ -94,6 +94,7 @@ export function applyLanguage() {
 
   const bindings = {
     "app-title": titleWithVersion,
+    "label-mode": txt.mode,
     "label-mode-xa": txt.modeXA,
     "label-mode-xb": txt.modeXB,
     "label-suffix": txt.suffix,
@@ -106,6 +107,7 @@ export function applyLanguage() {
     "label-custom-suffix": txt.customSuffix,
     "label-custom-repeat": txt.customRepeat,
     "label-custom-repeat-count": txt.customRepeatCount,
+    "label-more": txt.more,
     "label-upper": txt.upper,
     "label-lower": txt.lower,
     "label-dbvowel": txt.doubleVowel,
@@ -137,14 +139,16 @@ export function applyLanguage() {
     { id: "history-btn", text: txt.history, icon: "history" },
     { id: "library-btn-top", text: txt.library, icon: "library_books" },
     { id: "library-btn-mobile", text: txt.library, icon: "library_books" },
-    { id: "about-btn", text: txt.about, icon: "info" },
-    { id: "about-btn-mobile", text: txt.about, icon: "info" },
-    { id: "exe-btn", text: txt.exeVersion, icon: "code" },
-    { id: "exe-btn-mobile", text: txt.exeVersion, icon: "code" },
+    { id: "about-btn", text: txt.about, icon: "question_mark" },
+    { id: "about-btn-mobile", text: txt.about, icon: "question_mark" },
+    { id: "home-btn", text: txt.home, icon: "home" },
+    { id: "home-btn-mobile", text: txt.home, icon: "home" },
+    { id: "exe-btn", text: txt.exeVersion, icon: "desktop_windows" },
+    { id: "exe-btn-mobile", text: txt.exeVersion, icon: "desktop_windows" },
     { id: "lang-btn", text: txt.langBtn || currentLangObj.nativeName, icon: "language" },
     { id: "lang-btn-mobile", text: txt.langBtn || currentLangObj.nativeName, icon: "language" },
     { id: "clear-history-btn", text: txt.historyClear, icon: "delete_sweep" },
-    { id: "github-btn-mobile", text: "GitHub", icon: "open_in_new" }
+    { id: "github-btn-mobile", text: txt.github, icon: "warehouse" }
   ];
   buttons.forEach(({ id, text, icon }) => {
     const btn = $(id);

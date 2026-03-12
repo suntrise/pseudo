@@ -195,6 +195,14 @@ export function initEvents() {
     window.open("https://github.com/suntrise/Pseudo-localization-Demo", "_blank");
   });
 
+  $("home-btn")?.addEventListener("click", () => {
+    window.open("https://suntrise.github.io", "_blank");
+  });
+
+  $("home-btn-mobile")?.addEventListener("click", () => {
+    window.open("https://suntrise.github.io", "_blank");
+  });
+
   $("lang-btn")?.addEventListener("click", () => showModal("lang-modal"));
 
   $("lang-list")?.addEventListener("click", (e) => {

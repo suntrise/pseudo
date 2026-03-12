@@ -28,8 +28,10 @@
             <div class="topbar-actions" id="topbar-actions">
                 <md-text-button id="exe-btn" class="topbar-btn"></md-text-button>
                 <md-text-button id="library-btn-top" class="topbar-btn"></md-text-button>
-                <md-text-button id="about-btn" class="topbar-btn"></md-text-button>
                 <md-text-button id="lang-btn" class="topbar-btn"></md-text-button>
+                <md-text-button id="about-btn" class="topbar-btn"></md-text-button>
+                <md-text-button id="home-btn" class="topbar-btn"></md-text-button>
+                
                 <a href="https://github.com/suntrise/pseudo" target="_blank" rel="noopener" class="github-btn"
                     aria-label="GitHub">
                     <svg height="24" viewBox="0 0 16 16" width="24" fill="currentColor">
@@ -44,34 +46,37 @@
         </div>
 
         <div id="mobile-menu" class="mobile-menu">
-            <md-text-button id="github-btn-mobile" class="mobile-menu-btn">GitHub</md-text-button>
-            <md-text-button id="exe-btn-mobile" class="mobile-menu-btn"></md-text-button>
             <md-text-button id="library-btn-mobile" class="mobile-menu-btn"></md-text-button>
-            <md-text-button id="about-btn-mobile" class="mobile-menu-btn"></md-text-button>
             <md-text-button id="lang-btn-mobile" class="mobile-menu-btn"></md-text-button>
+            <md-text-button id="about-btn-mobile" class="mobile-menu-btn"></md-text-button>
+            <md-text-button id="home-btn-mobile" class="mobile-menu-btn"></md-text-button>
+            <md-text-button id="github-btn-mobile" class="mobile-menu-btn"></md-text-button>
+            <md-text-button id="exe-btn-mobile" class="mobile-menu-btn"></md-text-button>
+
         </div>
     </header>
 
     <main class="page">
         <section class="mode-row">
+            <b id="label-mode"></b> 
             <label>
                 <md-radio id="mode-xa" name="mode" value="XA" checked></md-radio>
                 <span id="label-mode-xa"></span>
             </label>
             <label>
-                <md-radio id="mode-xb" name="mode" value="XB"></md-radio>
+                <md-radio id="mode-xb" name="mode" value="XB" disabled></md-radio>
                 <span id="label-mode-xb"></span>
             </label>
         </section>
 
         <div class="text-wrapper">
             <div class="panel">
-                <md-filled-text-field id="input-text" type="textarea" rows="14"
+                <md-filled-text-field id="input-text" type="textarea" rows="10"
                     style="width: 100%"></md-filled-text-field>
             </div>
             <div class="divider"></div>
             <div class="panel">
-                <md-filled-text-field id="output-text" type="textarea" rows="14" style="width: 100%"
+                <md-filled-text-field id="output-text" type="textarea" rows="10" style="width: 100%"
                     readonly></md-filled-text-field>
             </div>
         </div>
@@ -84,6 +89,7 @@
         </section>
 
         <section class="options">
+            <b id="label-more"></b>
             <div class="option-group">
                 <span class="option-label" id="label-suffix"></span>
                 <select id="suffix-select" class="option-select">
@@ -105,7 +111,7 @@
                 <span id="label-custom-repeat-count"></span>
                 <input type="number" id="custom-repeat-count" class="option-input" value="7" min="1" />
             </div>
-
+            
             <div class="option">
                 <md-switch id="upper"></md-switch>
                 <span id="label-upper"></span>
@@ -137,6 +143,11 @@
             </div>
 
             <div class="option">
+                <md-switch id="preserveEsc"></md-switch>
+                <span id="label-preserve-esc"></span>
+            </div>
+            
+            <div class="option">
                 <md-switch id="addHash"></md-switch>
                 <span id="label-hash"></span>
             </div>
@@ -154,10 +165,6 @@
                 </select>
             </div>
 
-            <div class="option">
-                <md-switch id="preserveEsc"></md-switch>
-                <span id="label-preserve-esc"></span>
-            </div>
         </section>
     </main>
 
@@ -171,7 +178,7 @@
                 </button>
             </div>
             <div class="modal-content" id="history-content">
-                <p>No processing history yet.</p>
+                <p>No history.</p>
             </div>
             <div class="modal-actions">
                 <md-text-button id="clear-history-btn">Clear</md-text-button>
