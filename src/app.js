@@ -2,6 +2,7 @@ import { $ } from "./dom.js";
 import { initEvents, updateOptionVisibility } from "./events.js";
 import { applyLanguage, getSavedLang, loadI18n } from "./i18n.js";
 import { loadHistory, loadMode, loadSession, state } from "./state.js";
+import { parseUrlParams, applyUrlParamsToUI, applyUrlConfigToUI } from "./url-params.js";
 
 async function initializeApp() {
   await loadI18n();
@@ -10,15 +11,24 @@ async function initializeApp() {
   loadHistory();
   loadMode();
 
-  const session = loadSession();
-  $("input-text").value = session.input;
-  $("output-text").value = session.output;
+  const urlParams = parseUrlParams();
 
   await new Promise(r => setTimeout(r, 100));
 
   applyLanguage();
   initEvents();
   updateOptionVisibility();
+
+  if (urlParams.text) {
+    await applyUrlParamsToUI(urlParams);
+  } else {
+    applyUrlConfigToUI(urlParams);
+    const session = loadSession();
+    if (session.input) {
+      $("input-text").value = session.input;
+      $("output-text").value = session.output;
+    }
+  }
   
   const topbar = $("app-title")?.closest(".topbar");
   if (topbar) {

@@ -2,6 +2,7 @@ import { $, escapeHtml, hideModal, showModal, showToast } from "./dom.js";
 import { setLang, t } from "./i18n.js";
 import { processText } from "./processor.js";
 import { clearHistoryStorage, loadCharLib, saveHistory, saveMode, saveSession, state } from "./state.js";
+import { syncUrlParams } from "./url-params.js";
 
 function renderLibraryModal() {
   loadCharLib().then(lib => {
@@ -40,6 +41,7 @@ export function initEvents() {
         saveMode(radio.value);
       }
     });
+    syncUrlParams();
   };
   for (const radio of modeRadios) radio.addEventListener('change', updateMode);
   modeRadios.forEach(radio => {
@@ -78,15 +80,34 @@ export function initEvents() {
   upper?.addEventListener('change', () => {
     if (upper.selected) lower.selected = false;
     updateOptionVisibility();
+    syncUrlParams();
   });
   lower?.addEventListener('change', () => {
     if (lower.selected) upper.selected = false;
     updateOptionVisibility();
+    syncUrlParams();
   });
 
-  $("suffix-select")?.addEventListener("change", updateOptionVisibility);
-  $("dbvowel")?.addEventListener("change", updateOptionVisibility);
-  $("addHash")?.addEventListener("change", updateOptionVisibility);
+  $("suffix-select")?.addEventListener("change", () => {
+    updateOptionVisibility();
+    syncUrlParams();
+  });
+  $("dbvowel")?.addEventListener("change", () => {
+    updateOptionVisibility();
+    syncUrlParams();
+  });
+  $("addHash")?.addEventListener("change", () => {
+    updateOptionVisibility();
+    syncUrlParams();
+  });
+
+  // Sync URL when any More Settings input changes
+  ["custom-prefix", "custom-suffix", "custom-repeat", "custom-repeat-count",
+   "dbvowel-count", "hash-length", "numcir", "preserveEsc"].forEach(id => {
+    const el = $(id);
+    const eventType = el?.tagName === "MD-SWITCH" ? "change" : "input";
+    el?.addEventListener(eventType, syncUrlParams);
+  });
 
   $("process-btn")?.addEventListener("click", async () => {
     const text = $("input-text")?.value || "";
@@ -110,6 +131,7 @@ export function initEvents() {
       const result = await processText(text, options);
       $("output-text").value = result;
       saveSession(text, result);
+      syncUrlParams();
       if (text.trim()) {
         state.processingHistory.unshift({
           timestamp: Date.now(),
@@ -126,7 +148,10 @@ export function initEvents() {
   $("clear-btn")?.addEventListener("click", () => {
     $("input-text").value = "";
     $("output-text").value = "";
+    syncUrlParams();
   });
+
+  $("input-text")?.addEventListener("input", syncUrlParams);
 
   $("copy-btn")?.addEventListener("click", async () => {
     const val = $("output-text")?.value;
